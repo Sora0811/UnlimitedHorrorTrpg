@@ -1,0 +1,1788 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>BLACKLIGHT原型体</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">BLACKLIGHT</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">原形体</SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">本质：特异本质<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN></SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">“我是<SPAN 
+lang=EN-US>ALEX MERCER</SPAN>，这一切的罪魁祸首。他们叫我杀人犯，怪物，恐怖 份子。……我属于以上全部。”<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">D</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：感染者（<SPAN 
+lang=EN-US>infected</SPAN>）<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">属性：耐力<SPAN 
+lang=EN-US>+4</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能量池：无<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">特性：单属性上限突破，临界值（双特性），吞噬（双特性），病毒体质（双特性），疾行姿态，基因缺陷（三负特性），怕水（负特性），无法治愈（负特性）<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">技能树：开启<SPAN 
+lang=EN-US>D</SPAN>级黑光病毒技能树<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">特殊：无能量池，额外获得一个特性<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">临界值：你获得临界值这一刻度。上限为原型体的生命值+血统等级*5。临界值不会自然恢复。只能通过“吞噬”特性回复，黑光使用技能则消耗临界值。<BR></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">吞噬：你可以吞噬无助的生物来回复，以一个整轮动作，至多吞噬<SPAN 
+lang=EN-US>5</SPAN>点体积，并将等额的生命值转为完好，若所有生命值已经完好，则获得等额的临界值。原型体可以选择吞噬哪些部位，所有体积都被侵蚀的生物将尸骨无存，现场不会留下任何痕迹。元素生物，构装体，没有实体<SPAN 
+lang=EN-US>/</SPAN>能量体的生物以及植物都无法被侵蚀。这是一个<SPAN 
+lang=EN-US>D</SPAN>级即死效果，吞噬后你立即获得相当于该角色耐力值的精神束缚点数，该点数每轮下降<SPAN 
+lang=EN-US>1</SPAN>点。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">当你吞噬了一个生物后，会立即强制获得该生物的所有记忆。你可以拟化衣物，改变装束，这不是幻术效果而是变形效果。这使得你在伪装成这个人的时候其掩饰（伪装）和掩饰（易容）检定获得<SPAN 
+lang=EN-US>2</SPAN>点内在加值。</SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">基因缺陷：原型体对自身基因改动过大，加上部位功能已经完全失去意义，已经几乎无法适应任何改造和瞳术，原型体血统同时占用改造位和瞳术位，这在每个血统等级上提供<SPAN 
+lang=EN-US>2</SPAN>个负特性，同时失去基因锁，这在每个血统等级上再提供一个负特性。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">病毒体质：黑光获得蛛行术。并且你坠落时，每轮只会下降<SPAN 
+lang=EN-US>10</SPAN>米并且不会受到坠落伤害，你获得相当于陆地移动速度一半的飞行速度，机动性为笨拙，且不能向上飞行。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">疾行姿态：你的陆地移动速度提升你血统等级<SPAN 
+lang=EN-US>*10</SPAN>米<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">怕水：当黑光在水中时，其每轮行动时必须以最优先离开水为行动准则。这将导致黑光下水后立即选择出水，无法在水中进行任何行动，当被动下水后，其将放弃所有其他可能的行动必须优先离开水内。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">无法治愈：黑光由于本身是病毒，无法获得任何药水，毒品带来的效果，若带来的效果为恢复生命，则相当于对黑光造成等额的伤害。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">C</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：适应者（<SPAN 
+lang=EN-US>runner</SPAN>）<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">属性：耐力<SPAN 
+lang=EN-US>+6</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">特性：单属性上限突破，病毒体质（双特性），液化姿态，隐匿姿态，基因缺陷（三负特性）<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">技能树：开启<SPAN 
+lang=EN-US>C</SPAN>级黑光病毒技能树<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">病毒体质：原型体的身体完全由黑光病毒构成，这使他不依赖于原本的供能方式，花费<SPAN 
+lang=EN-US>3</SPAN>点临界值，一天内黑光不再需要食物和水，呼吸，睡眠。并且其实际上已经不存在部位的说法，原型体不受攻击特定部位的效果。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">液化姿态：你可以花费一个整轮动作启动和关闭本状态，启动本状态时你的移动速度减半，同时无法执行移动之外的动作，化为液体让你免疫针对单个目标的非【魔法】【神兵】特性的物理攻击，并且可以流过通常无法通过的缝隙，但这会让你身上除了手表之外的物品都留在原地。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">隐匿姿态：你可以随时启动和关闭本状态，启动时你模仿变色龙原理使自身融入环境，并阻止声音和气味等散发，将此视为一个血统等级<SPAN 
+lang=EN-US>-1</SPAN>的自然来源反侦测能力。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">B</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：原型体（<SPAN 
+lang=EN-US>protype</SPAN>）<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">属性：耐力<SPAN 
+lang=EN-US>+8</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">特性：属性上限突破，顽强（双特性），病毒本质（双特性），热感视觉，基因缺陷（三负特性）<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">技能树：开启<SPAN 
+lang=EN-US>B</SPAN>级黑光病毒技能树<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">顽强：原型体每一个细胞都具备求生意志，他获得全部死硬专长，若他之前已经具备死硬专长，则还能按照已有专长等级获得如下效果：<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">-1</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：人物在进行强韧豁免检定时增加<SPAN 
+lang=EN-US>1</SPAN>个附加成功<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">-2</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：人物的生命值上限额外提升<SPAN 
+lang=EN-US>2</SPAN>点<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">-3</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：人物现在可以忽略总和不超过此专长等级的任意异常状态点数。被忽略的异常点数并非被消除，而是暂时压制，在计算是否进入重度<SPAN 
+lang=EN-US>/</SPAN>毁灭性后果时仍需将其计入。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">-4</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：这个加值现在对所有来源的不良状态都生效<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">-5</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：现在当你死亡时，你不会死亡，而是让恶性伤害填满你所有的生命槽，此时你不会死亡，但是之后哪怕受到1点冲击伤害也会死亡，这个效果直到你的生命值回复到全部为完好为止都不能再次发动。你在生命被冲击<SPAN 
+lang=EN-US>/</SPAN>严重<SPAN lang=EN-US>/</SPAN>恶性填满时，所有行动获得<SPAN 
+lang=EN-US>2/4/8DP</SPAN>士气加值，取代原本的数值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">热感视觉：原型体可以开启一种独特的视觉，开启和关闭是一个移动动作，开启后黑光失去模糊视距，但是其获得相当于其敏感范围的盲视能力。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">病毒本质：你免疫<SPAN 
+lang=EN-US>B</SPAN>级的毒素和疾病效果以及心灵效果。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">A</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级：母体<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">属性：耐力<SPAN 
+lang=EN-US>+12</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">特性：属性上限突破，集群病毒，不灭体（三特性），基因缺陷（双负特性）<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">技能树：开启<SPAN 
+lang=EN-US>A</SPAN>级黑光病毒技能树<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">集群病毒：黑光获得集群生物特性。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">不灭体：原型体在死亡后会崩解为液体形式继续存活，只需稍许时间又能变得完好如此，当原型体确实死亡时，他的生命值回复到最大，并且转为液体形态，他依然保留所有原本能力和特性，但他不能进行除了移动（并非移动动作）之外的任何行动（这意味着他可以用移动，标动来移动，如果他有能力支持，还可以用迅捷来移动），在液体形态下，他免疫任何针对单个目标的效果，包括攻击，当其受到伤害时，他可以用意志来等量抵消伤害，从较严重的类型开始，在液体形态下再次死亡会让原型体真正灭亡。在液体形态下，来自他人的医疗，以及快速医疗特性不但对液体形态生效，也对正常形态生效，将正常形态视为生命值被恶性伤害填满，当快速医疗足以将正常形态的生命值完全回复时，液体形态将归拢为正常形态，重新以最大生命值的形态复活。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">D</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级黑光病毒技能树：<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">基因拟化 
+<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN 
+lang=EN-US>D+500</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN 
+lang=EN-US>1</SPAN>点临界值<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景或直到解除<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：黑光病毒原型体可以控制自身病毒向特定方向拟化，表现出特定能力，时而是巨大的力量，时而是灵敏的行动。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体选择自己的一个生理系属性获得<SPAN lang=EN-US>2</SPAN>点增强加值。若原型体承受相当于获得加值一半的耐力减值（因此这不会影响购买耐力的价格），并占用能耗的等额临界值上限，则属性加值的持续时间变为永久，直到原型体以一个标准动作恢复这些耐力值，这些耐力减值无法以其他手段回复，同时释放的临界值上限和获得的生命值都需要重新补充，这些生命值视为已经被恶性伤害填满。该加值不叠加。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">增幅：每当血统等级提升<SPAN lang=EN-US>1</SPAN>级，则可以额外消耗<SPAN lang=EN-US>2</SPAN>点临界值，使属性再增加<SPAN lang=EN-US>2</SPAN>点。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN lang=EN-US 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">基因吞噬<BR>价格：C+1000<BR>动作：特殊<BR>目标：单体<BR>持续：永久<BR>描述：原型体在吞噬有机物时，可以从中提取优质基因，改善自身。<BR>特殊：本能力可以多次购买，每次购买时，会获得4个空置槽位。当一个生物所有体积都被原型体利用有机体储备特性侵蚀时，原型体可以从对方的基因中掠夺力量。<BR>效果：被吞噬的生物有属性高于你时（仅计算双方基础属性，修行加值和内在加值），你花费一个空置特性，来获得该属性上相当于你血统等级的内在加值。<BR>被吞噬的生物有技能高于你时，你花费一个空置特性，将该技能提升一级（上限为5/7/10/12）<BR>被吞噬的生物天防高于你时，你花费一个空置特性，令你的天生防御提升相当于你血统等级*2点。<BR>被吞噬的生物天武伤害高于你时，你花费一个空置特性，令你的天生武器伤害提升相当于你血统等级/点。<BR>该技能的特性无法叠加（你无法用两个槽位来提升同一项属性或技能），但不同的属性或者技能可以同时生效。<BR>该技能得到的特性是随机的（例如当生物符合所有条件时，先投1D4决定获得哪种，若结果是1属性，对方有4项属性高于你，再投1D4决定获得哪项属性，你已经获得过的特性会自动排除，例如对方有4项属性高于你，但你特性位已经获得过其中三项，那么只会获得第四项）最后，该技能只会得到可以得到的结果。你可以选择不使用本技能，但一旦使用，就会针对吞噬的有机体对每个空置特性进行掷骰，直到全部填满，或没有可以掠夺的特性为止。<BR></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">促进代谢<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>D+500</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：特殊<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一轮<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：原型体可以消耗临界值来提高代谢速度以获得快速再生能力。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：每消耗<SPAN lang=EN-US>1</SPAN>点临界值，原型体获得<SPAN lang=EN-US>1</SPAN>点快速医疗效果，每提升<SPAN lang=EN-US>1</SPAN>点消耗，则获得的快速医疗可以再提升一点，最多消耗传奇耐力与血统等级之和的临界值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">以此方式提升或获得的快速医疗，在生效时同时降低一种影响自身的状态点数，相当于快速医疗数，这种回复方式如同是经过了一定时间，进行短休息或长休息进行的回复，不能通过时间或休息来回复的状态点数无法被移除。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">肌肉变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>D+500</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>1</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为拥有巨力的铁拳，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。铁拳视为伤害（<SPAN 
+lang=EN-US>6+</SPAN>传奇耐力）<SPAN lang=EN-US>*1L</SPAN>的天生武器，获得【击飞】特性，造成钝击伤害。<SPAN lang=EN-US> </SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">利爪变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>D+500</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>1</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为锐利的骨爪，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">化为利爪的手无法再正常操控物品，利爪视为伤害（<SPAN lang=EN-US>6+</SPAN>传奇耐力）<SPAN lang=EN-US>*1L</SPAN>，破甲<SPAN lang=EN-US>3</SPAN>的天生武器，造成挥砍或者穿刺伤害。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">战斗侵蚀 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：任意能获得天生武器的血统技能（例如肌肉变化或利爪变化）<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>D+500</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：若原型体在一次本血统技能给予的天生武器攻击中使目标陷入无助，昏迷，或死亡，可以立刻以一个自由动作来发动“吞噬”，若这侵蚀了他所有体积，并且你同时进入目标的衣物，伪装成他的样子，任何基于生理的检测都无法区分你们（例如<SPAN 
+lang=EN-US>DNA</SPAN>，指纹，虹膜等）。该能力若在突袭或对手措手不及时发动，你进入他衣物的行为不会产生任何动静，被突袭杀死侵蚀掉的目标也无法做出挣扎叫喊之类引起注意的举动。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US>C</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级黑光病毒技能树：<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">鞭锤变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>3</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">被动：若你购买了肌肉变化，利爪变化，你可以各提升鞭锤变化的天生武器<SPAN lang=EN-US>2</SPAN>点武器伤害。<SPAN lang=EN-US> 
+</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为带有骨刃的长鞭状触手，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">化为鞭锤的手无法再正常操控物品。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">鞭锤视为伤害（<SPAN lang=EN-US>6+</SPAN>传奇耐力）<SPAN lang=EN-US>*1L</SPAN>的天生武器，触及范围可以在<SPAN lang=EN-US>1-50</SPAN>米之间随意变化，具有【软兵器】特性。鞭锤击中对手时，在伤害计算后可以以一个移动动作再对对手发动擒抱，同时鞭锤视为适合擒抱的武器。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">此外，还可以选择将被击中的对象拉到身前或将自己拉到被击中的对象身前，前者视为立刻进行一次冲撞，但方向相反，后者无需检定，自动成功且可以停留在鞭锤允许变化的长度中任意位置。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化盾变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>3</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">被动：若你购买了肌肉变化，利爪变化，你可以各提升生化盾变化的生化盾<SPAN lang=EN-US>2</SPAN>点体积。<SPAN lang=EN-US> 
+</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为巨大的骨盾，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">化为生化盾的手无法再正常操控物品。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化盾视为体积（<SPAN lang=EN-US>6+</SPAN>传奇耐力）的重盾，具备【格挡】特性。生化盾会主动掩蔽你同时留出你视线的位置，你始终获得由于大量掩蔽带来的防御上的<SPAN 
+lang=EN-US>8</SPAN>点掩蔽加值，这一掩蔽加值也应用到你的反射上。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">锤拳变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>3</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">被动：若你购买了肌肉变化，利爪变化，各自可以提升锤拳变化<SPAN lang=EN-US>2</SPAN>点天生武器伤害。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为无坚不摧的骨制巨锤，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">化为锤拳的手无法再正常操控物品。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">锤拳视为伤害（<SPAN lang=EN-US>6+</SPAN>传奇耐力）<SPAN lang=EN-US>*1L</SPAN>的天生武器，具有【威猛】特性。锤拳具有和武器伤害相同的破甲值，使用锤拳攻击体积大于自身的目标时，获得双方体积差值一半的破甲加值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">地刺<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：利爪变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>3</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：<SPAN lang=EN-US>100</SPAN>米<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：一个目标<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：你将利爪深深插入地下或墙中，利爪延伸至远方，从目标身边的墙壁或脚下窜出并对其发动攻击。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于利爪变化时，你可以发动本能力，本能力要求你与目标之间必须拥有障碍物相（如土地）连接，你将利爪伸入该障碍物中，然后你对目标发动一次近战攻击，该目标不得离开该障碍物超过<SPAN 
+lang=EN-US>3+</SPAN>你的传奇耐力<SPAN lang=EN-US>/</SPAN>米，本次攻击提升<SPAN lang=EN-US>6</SPAN>点【破甲】。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">攻击路径上所有硬度低于利爪破甲的障碍物可以被一路贯穿，那些被贯穿的事物如果必要，视为受到了相当于利爪武器伤害的伤害。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">你也可以不将利爪深入地面，比如建筑物，载具都是可以的。你可以透过本能力直接袭击建筑物后，掩蔽物后，载具后的目标，但是你必须需要提前确认目标的位置。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">进化：花费<SPAN lang=EN-US>36XP</SPAN>，本次攻击能击破<SPAN lang=EN-US>4</SPAN>点任意来源的伤害减免或伤害吸收，并且这个招式能同时攻击范围内所有你打算攻击的目标。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">肌肉强化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：肌肉变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于肌肉变化时，你在考虑擒抱，负重能力，基础投掷距离时视为你的力量比实际上高<SPAN lang=EN-US>6</SPAN>点。你可以无视体积差距，举起任何不超过你负重上限的东西作为临时武器使用，无论是人，卡车还是飞机，对于能活动的物体你需要先成功擒抱它，然后每次使用都通过擒抱检定才行，这些临时武器的伤害视为其体积值，但最大不会超过你调整后传奇力量与传奇耐力之和，并且具有【重投掷武器】特性，你无法使用这些临时武器来使用招式，同时他们无法归类为任何技能，因此也不会获得来自技能和专业的加值（因此攻击<SPAN 
+lang=EN-US>DP</SPAN>通常变为力量<SPAN lang=EN-US>+</SPAN>武器伤害，伤害上限同样如此），使用这些临时武器造成伤害时，这些临时武器本身也会受到伤害，相当于他们造成的伤害，这可能摧毁他们。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">强化战斗侵蚀<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：战斗侵蚀<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：你在战斗中可以依赖侵蚀的力量而非自身的力量。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你使用本血统技能带来的天生武器或其招式攻击可以被侵蚀为临界值的生物时，你可以用耐力作为关键属性来进行天生武器攻击，并以耐力代替力量决定伤害上限。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化甲变化 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>5</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">被动：若你购买了肌肉变化，利爪变化，各自可以提升生化甲变化<SPAN lang=EN-US>2</SPAN>点盔甲防御。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将在自身覆上一层拟态甲胄，这视为重甲。若原型体原本穿着甲胄，则直接覆盖并替换该甲胄效果。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化甲<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">分类：重甲<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">盔甲基本属性：盔甲防御<SPAN lang=EN-US>8+</SPAN>你的传奇耐力<SPAN lang=EN-US>/</SPAN>盔甲防御<SPAN lang=EN-US>8+</SPAN>你的传奇耐力，盔甲减值<SPAN lang=EN-US>4</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">盔甲特殊属性：【防弹】【防能量武器】【封闭<SPAN lang=EN-US>3</SPAN>】<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">强硬：穿戴者获得相当于血统等级的硬度。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">刚破：穿戴者在进行冲撞时，若你冲撞成功，则对目标额外造成差值的严重伤害。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">厚重：穿戴者的飞行能力下降<SPAN lang=EN-US>2</SPAN>个机动性，若降至笨拙以下，则失去飞行能力。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">清道夫 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：鞭锤变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>C+1000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>3</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：范围内所有选定的目标<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：以你为中心<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：最大半径<SPAN lang=EN-US>200</SPAN>米环形<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：你让鞭锤暴涨，然后旋身扫荡进行范围攻击。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于鞭锤变化时，你可以对所有你选择的目标进行横扫打击，受到相当于鞭锤天生武器的范围伤害，反射豁免，同时，你以鞭锤对每个被打击的生物进行一次近战肉搏攻击检定，每有<SPAN 
+lang=EN-US>1</SPAN>点成功数，则目标的反射检定失去<SPAN lang=EN-US>1DP</SPAN>。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若你成功造成伤害，则你可以立刻消耗一个移动动作对任何受到至少<SPAN lang=EN-US>1</SPAN>点伤害的目标发起一次擒抱检定，对于被你成功擒抱的生物，你可以决定在横扫结束后他们所在的位置，位置为你清道夫的发动范围，之后擒抱自动结束，这种方式引发的擒抱成功不触发其他擒抱成功的效果。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">进化：消耗<SPAN lang=EN-US>54XP</SPAN>，若你已经双手都处于鞭锤变化，你可以同时发动两次次清道夫效果。如果仍只发动一次，可以将两个鞭锤的武器伤害合计成一个来计算伤害。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US>B</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级黑光病毒技能树：<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化盾强化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：生化盾变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>B+2000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你进行生化盾变化，并进行格挡时，你获得<SPAN lang=EN-US>4</SPAN>点全伤害吸收。并且每消耗<SPAN lang=EN-US>1</SPAN>点临界值可以获得<SPAN lang=EN-US>2</SPAN>点全伤害吸收。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">生化甲强化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：生化甲变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>B+2000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：你的生化甲获得“超级防护”特性。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">超级防护：穿戴者的防御获得相当于耐力值一半的器械加值，并获得相当于传奇耐力的<SPAN lang=EN-US>dr/-</SPAN>和全能量抗力，持续一个场景。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">创造衍体 <SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>B+2000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你完全吞噬一个生物的所有体积时，你可以选择不是将其吸收进体内，而是支付等同于其体积的临界值上限，你将其转化为病毒衍体，直到病毒衍体被消灭，你的临界值上限才会被解放，你只能将体积和耐力都低于你耐力的生物转化成病毒衍体。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">成为病毒衍体的生物失去其生前的血统和改造，但获得比你低一级的黑光病毒原型体血统，并继承你的所有血统技能（其中创造衍体一项即使衍体的血统已经降到更低等级也能使用，即使<SPAN 
+lang=EN-US>D</SPAN>级的衍体也能制造同样<SPAN lang=EN-US>D</SPAN>级的衍体），保留其他生前的能力，病毒衍体虽然具备智力，但是没有理智，疯狂而充满攻击性，也有着战斗本能，能最好的发挥他们的战斗力，但无法进行形态拟化，并且病毒明显的缠绕在他们的躯体上，如果没有明确的指令，他们只会寻找和撕碎最近的衍体和你以外的生物，将他们转化成新的衍体或吞噬他们以回复自身。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">你只能控制在你敏感感知范围内的衍体，通过心灵链接的方式向它们下令，但只能下达非常简单的指令，比如往哪走，打谁，不打谁，不要动之类。他们无法理解哪怕稍微复杂的概念，比如保护谁，具体的指令由<SPAN 
+lang=EN-US>ST</SPAN>判断。其他衍体你只能感知到他们的位置，但无法控制他们的行动，衍体产生的下级衍体的行动不会被你控制，但你依然能感知到他们的位置。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">刀刃变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>B+2000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：自由动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>5</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：自身<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：无<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：一个场景<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">被动：若你购买了肌肉变化，利爪变化，各自可以提升刀刃变化<SPAN lang=EN-US>2</SPAN>点天生武器伤害。若你购买了鞭锤变化，生化盾变化，锤拳变化，生化甲变化各自可以提升刀刃变化<SPAN 
+lang=EN-US>4</SPAN>点天生武器伤害。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：原型体将一只手转化为巨大的骨刃，你可以再次使用此能力来转化另一只手，终止变化是一个自由动作。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">化为刀刃的手无法再正常操控物品。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">刀刃视为伤害（<SPAN lang=EN-US>12+</SPAN>传奇耐力）<SPAN lang=EN-US>*1L</SPAN>的天生武器，获得相当于耐力值一半的破甲，具有【<SPAN lang=EN-US>8</SPAN>加骰】【神兵】特性。攻击检定获得相当于耐力值一半的器械加值。刀刃可以无视基于材质的伤害减免（例如木，银，寒铁，精金等）。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">重锤<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：锤拳变化<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>B+2000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>5</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：以你为中心<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：范围内你以外的所有单位<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：见下<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：你猛击大地，形成巨大的冲击波轰向周围的目标。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于锤拳变化时，并且你站在坚固表面上，然后向脚下的表面进行一次锤拳攻击检定，以你为中心，造成的伤害数<SPAN 
+lang=EN-US>*3</SPAN>米为半径之内所有目标不分敌我，都受到相当于你造成的伤害数的钝击严重伤害，强韧豁免。该伤害不会传导你天生武器的伤害特性。任何受到伤害高于自身体积的目标被向空中抛起，高度相当于所受伤害数减去自身体积，通常，没有飞行能力的话，他们会立刻坠落，无论是否有飞行能力，在被抛起之后，直到他们自己的回合之前，他们都将处于【浮空】状态。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">这个招式还可以在特殊的冲锋中启动，你必须从空中向地面或地面上的目标冲锋，在这次冲锋中，你因冲锋带来的加值变为附加成功，并同步提升你的伤害上限，同时你每受到<SPAN 
+lang=EN-US>1</SPAN>点坠落伤害，则再获得<SPAN lang=EN-US>1</SPAN>点附加成功，并同步提升你的伤害上限。在这次冲锋的伤害结算后，以被冲锋的目标为中心，造成上述重锤的效果。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US>A</SPAN><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">级黑光病毒技能树：<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">母巢意识<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：创造衍体<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>A+4000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：被动<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：拥有了母巢意识的你可以掌控每一个“自我”，现在你可以精确的控制你的每一个造物，你的每一个细胞都可以以最合理的方式分摊范围伤害。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：所有你直接创造的衍体无论距离你都能以心灵链接的方式向他们下达精确而复杂的命令，但你仍然不能控制衍体的衍体。此外，你对构成自身的病毒细胞个体的控制变得更为精妙，你以耐力代替决心来决定你的意志值，意志力池以及意志检定（传奇决心带来的效果如常生效），同时你在针对范围伤害的豁免检定中获得相当于你耐力的内在加值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">临界状态<BR>价格：A+4000<BR>动作：被动<BR>描述：构成原型体的病毒在极端危险或富足的情况下会进入临界状态，全面强化原型体的各项机能。<BR>效果：原型体现在可以额外存储临界值，至多生命值上限*2，仅在自身临界值已经恢复到最大值或已经无法再恢复自身临界值时，原型体才能获得这种储备。<BR>当你受到伤害时，这种额外的临界值可以当做临时生命来使用，但是它们不会因为切换场景而自动失去。</SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">墓尖灭杀<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：临界状态<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>A+4000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>7</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：范围所有选定单位<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：以你为中心<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：耐力<SPAN lang=EN-US>*50</SPAN>米半径<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于临界状态时，你将病毒化为无数触手潜入大地或墙壁等掩蔽物，于目标身边刺出，将其贯穿后钉在触手上。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">你选择以你为中心，耐力<SPAN lang=EN-US>*50</SPAN>米半径内所有离障碍物不超过<SPAN lang=EN-US>50</SPAN>米，且障碍物与你直接或通过其他障碍物相连的目标，你对这些目标同时进行一次天生武器的近战肉搏攻击，武器伤害和破甲视为你的耐力值，这次攻击视为具有<SPAN 
+lang=EN-US>A</SPAN>级措手不及。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">受到伤害高于自身体积的目标被触手贯穿后钉在空中，视同处于【浮空】状态，持续到你下一轮行动开始，或主动以一个移动动作离开位置，这将造成相当于自身体积的不可避免的恶性伤害，持续时间内，所有覆盖触手的区域视为困难地形，这些触手在你下一轮行动开始时自动收回你的体内。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若你因额外临界值而进入临界状态，你所有的额外储备都将在攻击结束后失去，每失去<SPAN lang=EN-US>1</SPAN>点，这次攻击获得<SPAN lang=EN-US>1</SPAN>点附加成功，并且提升<SPAN lang=EN-US>1</SPAN>点伤害上限。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">因此攻击陷入无助，昏迷或死亡的生物，立刻被你完整吞噬，你在触手收回后获得这些侵蚀所得的临界值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">万千触须<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：临界状态<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>A+4000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>7</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：范围所有选定单位<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：以你为中心<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">范围：耐力<SPAN lang=EN-US>*50</SPAN>米半径<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于临界状态，你将病毒化为无数触手从自身爆出，缠绕，摧毁他们遇到的一切，并将其中你希望的部分拖到你身边或其他位置。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">你选择以你为中心，耐力<SPAN lang=EN-US>*50</SPAN>米半径内的任意数量目标，范围内的所有你选择的目标受到相当于你的耐力值的伤害，反射豁免。本伤害在对抗硬度时，额外获得相当于耐力值得【破甲】。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">你可以立刻对任何受到至少<SPAN lang=EN-US>1</SPAN>点伤害的目标发起一次擒抱检定，视为你使用了适合擒抱的天生武器，在万千触须效果中，你可以同时擒抱多个目标，并且目标每受到<SPAN 
+lang=EN-US>1</SPAN>点伤害，在对抗擒抱的检定中受到<SPAN lang=EN-US>1</SPAN>点招式减值，擒抱效果持续到你下一轮行动开始，对于被你成功擒抱的生物，你可以决定他们所在的位置，位置为你万千触须的发动范围，持续时间内，所有覆盖触手的区域视为困难地形，在你下一轮行动开始时，所有触手回到你体内。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">同时，你以该天生武器对每个被打击的生物进行一次近战攻击检定，这次攻击视为接触攻击，无视格挡防御，每有<SPAN 
+lang=EN-US>1</SPAN>点成功数，则目标的反射检定失去<SPAN lang=EN-US>1DP</SPAN>。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若你因额外临界值而进入临界状态，你所有的额外储备都将在攻击结束后失去，每失去<SPAN lang=EN-US>1</SPAN>点，这次攻击造成的范围伤害提高<SPAN lang=EN-US>1</SPAN>点。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">因此攻击陷入无助，昏迷或死亡的生物，立刻被你完整吞噬，你在触手收回后获得这些侵蚀所得的临界值。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast" 
+lang=EN-US></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast"></SPAN>&nbsp;</P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">致命痛楚<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">前提：临界状态<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">价格：<SPAN lang=EN-US>A+4000</SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">动作：标准动作<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">能耗：<SPAN lang=EN-US>7</SPAN>点临界值<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">目标：单体<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">射程：耐力<SPAN lang=EN-US>*100</SPAN>米半径<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">持续：立即<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">描述：你将病毒螺旋交织化为单一突破天际的触手向一个对手刺出。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">效果：当你处于临界状态时，你对目标进行一次以天生武器发动的近战肉搏攻击，其武器伤害相当于你的耐力值，以及等额的破甲，使用力量和耐力共同计算本次攻击的伤害上限，具备【贯穿】特性。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若生物在此次攻击中受到的伤害高于自身体积值，将被沿着触手延伸方向被击退直到触手的距离尽头，攻击路径上所有硬度低于触手破甲的障碍物可以被一路贯穿，那些被贯穿的事物如果必要，视为受到了相当于触手武器伤害的伤害。若障碍物的硬度大于触手的破甲，则强制停止。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若在此过程中每遇上一个障碍物，按坠落规则重复计算坠落伤害，并在坠落伤害中加上障碍物的硬度，，同时无视目标免疫坠落伤害特性，每次撞击都单独结算一次伤害。<SPAN 
+lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">攻击结束后，触手会立刻收回。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">若你因额外临界值而进入临界状态，你所有的额外储备都将在攻击结束后失去，每失去<SPAN lang=EN-US>1</SPAN>点，这次攻击获得<SPAN lang=EN-US>1</SPAN>点附加成功，并且提升<SPAN lang=EN-US>1</SPAN>点伤害上限。<SPAN lang=EN-US></SPAN></SPAN></P>
+<P 
+style="TEXT-ALIGN: left; LINE-HEIGHT: 150%; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan" 
+class=MsoNormal align=left><SPAN 
+style="LINE-HEIGHT: 150%; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; mso-ascii-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-theme-font: minor-fareast">因此攻击陷入无助，昏迷或死亡的生物，立刻被你完整吞噬，你在触手收回后获得这些侵蚀所得的临界值。<SPAN 
+lang=EN-US></SPAN></SPAN></P></body>
+</html>
