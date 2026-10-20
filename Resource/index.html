@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unlimited Horror TRPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-nav="open" data-ai="closed">
+
+  <header class="topbar">
+    <button id="nav-toggle" class="btn btn-icon" type="button"
+            aria-controls="nav-panel" aria-expanded="true" aria-label="開關目錄" title="開關目錄">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M3 5h14M3 10h14M3 15h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <h1 class="site-title">Unlimited Horror TRPG</h1>
+
+    <form id="search-form" class="search" role="search" autocomplete="off">
+      <input id="search-input" type="search" placeholder="搜尋規則書" aria-label="搜尋規則書">
+      <button class="btn btn-icon" type="submit" aria-label="搜尋" title="搜尋">
+        <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <!-- 預留：未來的搜尋結果顯示區域 -->
+      <div id="search-panel" class="search-panel" role="status" hidden>
+        <p id="search-message"></p>
+      </div>
+    </form>
+
+    <button id="ai-toggle" class="btn btn-text" type="button"
+            aria-controls="ai-panel" aria-expanded="false">AI 助手</button>
+  </header>
+
+  <div class="workspace">
+
+    <aside id="nav-panel" aria-label="規則書目錄">
+      <!-- 沿用既有 left.htm，不修改其內容 -->
+      <iframe id="nav-frame" src="234/left.htm" title="規則書目錄"
+              sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
+    </aside>
+
+    <div id="content-area" class="content-area">
+      <main id="reader" class="reader">
+        <div id="notice" class="notice" role="alert" hidden></div>
+        <div class="reader-inner">
+          <iframe id="reader-frame" title="規則書內容"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
+        </div>
+      </main>
+
+      <div id="ai-resizer" role="separator" aria-orientation="vertical"
+           aria-label="調整 AI 面板寬度" aria-valuemin="20" aria-valuemax="40" aria-valuenow="25"
+           tabindex="0"></div>
+
+      <aside id="ai-panel" aria-label="AI 助手">
+        <div class="panel-head">
+          <h2>AI 助手</h2>
+          <button id="ai-close" class="btn btn-icon" type="button" aria-label="關閉 AI 助手" title="關閉">
+            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="panel-body">
+          <p>AI 助手功能尚未開放。</p>
+        </div>
+      </aside>
+    </div>
+
+    <div id="backdrop" class="backdrop"></div>
+  </div>
+
+  <noscript>
+    <p class="noscript">此網站需要啟用 JavaScript 才能瀏覽規則書。</p>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

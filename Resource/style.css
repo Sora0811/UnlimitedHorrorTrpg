@@ -1,0 +1,358 @@
+/* Unlimited Horror TRPG 規則書入口網站
+ * 只負責外層介面，不會影響 iframe 內的規則頁面。 */
+
+:root {
+  --bg: #faf6ef;
+  --surface: #fffdf9;
+  --surface-alt: #f3ede2;
+  --text: #3f342c;
+  --text-muted: #7b6d61;
+  --accent: #b26a45;
+  --accent-strong: #96532f;
+  --line: #e3dacb;
+  --notice-bg: #fbefe3;
+  --notice-line: #edd5bd;
+  --nav-w: 300px;        /* 桌面版目錄寬度 */
+  --reader-max: 1080px;  /* 閱讀區正文最大寬度；想要更寬或不限制可改這裡 */
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---------- 頂部標題列 ---------- */
+
+.topbar {
+  position: relative;
+  z-index: 30;
+  flex: none;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  grid-template-areas: "nav title search ai";
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 6px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+#nav-toggle { grid-area: nav; }
+.site-title { grid-area: title; }
+.search { grid-area: search; }
+#ai-toggle { grid-area: ai; }
+
+.site-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--surface-alt); }
+
+.btn-icon { width: 36px; padding: 0; }
+
+.btn-text {
+  padding: 0 14px;
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+}
+
+.btn-text:hover,
+#ai-toggle[aria-expanded="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 搜尋 ---------- */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-self: end;
+  width: 100%;
+  max-width: 380px;
+  padding-left: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.search:focus-within { border-color: var(--accent); }
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.search input:focus-visible { outline: none; }
+
+.search input::placeholder { color: var(--text-muted); }
+
+.search-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 40;
+  width: min(340px, calc(100vw - 28px));
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 6px 20px rgba(63, 52, 44, 0.12);
+  font-size: 0.9rem;
+}
+
+.search-panel p { margin: 0; }
+
+/* ---------- 工作區 ---------- */
+
+.workspace {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+#nav-panel {
+  display: none;
+  flex: none;
+  width: var(--nav-w);
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+body[data-nav="open"] #nav-panel { display: block; }
+
+#nav-frame,
+#reader-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+#nav-frame { background: var(--surface); }
+
+.content-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+/* ---------- 閱讀區 ---------- */
+
+.reader {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-alt);
+}
+
+.reader-inner {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: var(--reader-max);
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.notice {
+  flex: none;
+  padding: 8px 14px;
+  background: var(--notice-bg);
+  border-bottom: 1px solid var(--notice-line);
+  color: #7a4a2a;
+  font-size: 0.875rem;
+}
+
+/* ---------- AI 面板 ---------- */
+
+#ai-resizer {
+  display: none;
+  flex: none;
+  position: relative;
+  z-index: 5;
+  width: 8px;
+  margin: 0 -4px;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+#ai-resizer:hover,
+#ai-resizer:focus-visible,
+body.dragging #ai-resizer {
+  background: linear-gradient(to right, transparent 3px, var(--accent) 3px, var(--accent) 5px, transparent 5px);
+  outline: none;
+}
+
+#ai-panel {
+  display: none;
+  flex: none;
+  flex-direction: column;
+  width: calc(var(--ai-frac, 0.25) * 100%);
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+}
+
+body[data-ai="open"] #ai-panel { display: flex; }
+
+.panel-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px 6px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.panel-body p { margin: 0; }
+
+.backdrop {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  background: rgba(63, 52, 44, 0.35);
+}
+
+.noscript {
+  margin: 0;
+  padding: 12px 14px;
+  background: var(--notice-bg);
+}
+
+body.dragging {
+  cursor: col-resize;
+  user-select: none;
+}
+
+body.dragging iframe { pointer-events: none; }
+
+/* ---------- 桌面以外：目錄與 AI 面板改為覆蓋式抽屜 ---------- */
+
+@media (max-width: 1024px) {
+  #nav-panel {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(88vw, 340px);
+    box-shadow: 4px 0 20px rgba(63, 52, 44, 0.15);
+  }
+
+  #ai-panel {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: min(92vw, 420px);
+    box-shadow: -4px 0 20px rgba(63, 52, 44, 0.15);
+  }
+
+  body[data-nav="open"] .backdrop,
+  body[data-ai="open"] .backdrop { display: block; }
+
+  .reader-inner {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  body[data-ai="open"] #ai-resizer { display: block; }
+}
+
+/* ---------- 手機：搜尋列移到第二行 ---------- */
+
+@media (max-width: 640px) {
+  .topbar {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "nav title ai"
+      "search search search";
+    row-gap: 6px;
+    padding: 6px 10px 8px;
+  }
+
+  .search {
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .search-panel {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+}
