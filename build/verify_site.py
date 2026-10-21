@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """對執行中的本機伺服器做全站驗證。"""
 import re
 import sys
@@ -7,7 +7,7 @@ import urllib.request
 from pathlib import Path
 
 RES = Path(__file__).resolve().parent.parent / "Resource"
-BASE = "http://127.0.0.1:8849/"
+BASE = "http://127.0.0.1:8850/"
 
 
 def get(path):

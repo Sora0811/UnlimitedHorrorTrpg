@@ -1,5 +1,9 @@
-﻿# 建置產物
+# 建置產物（跑腳本時產生的暫存對照表，可重新生成）
 build/*.json
+
+# 例外：這是導航排序的依據，必須進版控
+# 否則 clone 後 gen_nav_fs.py 找不到它，各分類會退回名稱排序
+!build/original-order.json
 
 # 系統檔案
 Thumbs.db

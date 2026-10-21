@@ -2,12 +2,11 @@
 """掃描實體結構，重建 left.htm。
 
 以「實際存在的資料夾樹」為唯一來源，保證導航與檔案系統一致。
-顯示順序由 ORDER 決定，不依賴資料夾名稱排序——資料夾叫什麼不影響它在導航上的位置。
+顯示順序由 ORDER 決定，不依賴資料夾名稱——資料夾叫什麼不影響它在導航上的位置。
 
-規則：
-  - 含 index.html 的資料夾 = 條目節點（連結指向該目錄）
-  - 同時含 index.html 與子資料夾 = 分類節點（可點，且有子節點）
-  - 未列在 ORDER 的分類，排在已列出者之後，並依名稱自然排序
+ORDER 的值有兩種寫法：
+  - 清單 ["a","b"]        → 這幾個照此順序排在前面，其餘接在後面（自然排序）
+  - None                  → 全部照 **原始 CHM 編排順序**（從 .hhc 取），其餘接在後面
 """
 import re
 import sys
@@ -17,17 +16,41 @@ ROOT = Path(__file__).resolve().parent.parent
 RES = ROOT / "Resource"
 VIRTUAL_ROOT = "無限恐怖規則"
 
-# 頂層章節顯示順序
 TOP_ORDER = ["規則", "資源", "未開放"]
 
-# 各層分類的顯示順序（未列出的排在後面，依名稱自然排序）
+# 顯示順序。key 為「相對於 Resource 的資料夾路徑」
 ORDER = {
     "": ["規則", "資源", "未開放"],
+
+    # 規則：ST 幫助移最後
     "規則": ["本書說明", "序", "遊戲玩法", "建立人物卡來參與遊戲", "戰鬥相關",
              "其他相關", "特殊規則部分", "關鍵字速查", "傳奇輪迴者", "ST幫助"],
-    "資源": ["總綱", "血統", "改造", "瞳術", "稱號", "流派", "技藝",
-             "修真", "魔導書", "能量池", "物品", "專長"],
+
+    # 資源：專長提前、流派併入稱號、物品放最後
+    "資源": ["總綱", "血統", "改造", "瞳術", "稱號", "技藝", "修真",
+             "魔導書", "能量池", "專長", "物品"],
+
+    # 專長：從規則搬過來的分組照指定順序排前面，再來超魔／輪迴隊
+    "資源/專長": ["建卡專長", "生理系專長", "心智系專長", "互動系專長",
+                  "戰鬥系專長", "缺陷、天賦和怪癖", "超魔專長", "輪迴隊專長"],
+
+    # 建立人物卡：建卡 → 屬性概述 → 技能概述 → 技能（三個子系）→ 專長概述
+    "規則/建立人物卡來參與遊戲": ["建卡", "屬性概述", "技能概述", "技能", "專長概述"],
+
+    # 技能：概述已上移，這裡只放三個子系
+    "規則/建立人物卡來參與遊戲/技能": ["生理系技能", "心智系技能", "互動系技能"],
+
+    # 物品：原始編排順序（載具 → 科技本質 → 魔幻本質 → 特異本質 → 防具 → 附魔改造 → 劇情物品）
+    "資源/物品": ["載具", "科技本質", "魔幻本質", "特異本質", "防具",
+                  "物品附魔與改造", "劇情物品"],
 }
+
+# 未在 ORDER 指定的分類：照原始 CHM 編排順序（由 build/export_original_order.py 產出）
+ORIG_PATH = Path(__file__).resolve().parent / "original-order.json"
+ORIGINAL_ORDER = {}
+if ORIG_PATH.exists():
+    import json
+    ORIGINAL_ORDER = json.loads(ORIG_PATH.read_text(encoding="utf-8"))
 
 SKIP = {"img", "_chm源檔"}
 
@@ -37,9 +60,17 @@ def natural_key(s):
 
 
 def sort_dirs(parent_rel: str, dirs):
-    """依 ORDER 指定的順序排，未指定的接在後面。"""
-    pref = ORDER.get(parent_rel, [])
-    idx = {n: i for i, n in enumerate(pref)}
+    """排序優先序：ORDER 明確指定 > 原始 CHM 編排 > 自然排序。"""
+    pref = ORDER.get(parent_rel)
+    if pref is not None:
+        idx = {n: i for i, n in enumerate(pref)}
+        known = sorted([d for d in dirs if d.name in idx], key=lambda d: idx[d.name])
+        rest = sorted([d for d in dirs if d.name not in idx], key=lambda d: natural_key(d.name))
+        return known + rest
+
+    # 沒有明確指定 -> 照原始 CHM 編排
+    orig = ORIGINAL_ORDER.get(parent_rel, [])
+    idx = {n: i for i, n in enumerate(orig)}
     known = sorted([d for d in dirs if d.name in idx], key=lambda d: idx[d.name])
     rest = sorted([d for d in dirs if d.name not in idx], key=lambda d: natural_key(d.name))
     return known + rest
