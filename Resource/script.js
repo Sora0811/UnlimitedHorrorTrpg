@@ -41,12 +41,27 @@
 
   /* ===== 路徑工具 ===== */
 
-  /** 相對路徑是否為合法的規則頁面（不含 .. 、不是絕對路徑、必須是 .htm/.html） */
+  /**
+   * 相對路徑是否為合法的規則頁面。
+   * 現在的條目是「資料夾 + index.html」，網址形如 資源/血統/人類/禍神血脈/
+   * 因此同時接受目錄式網址與傳統 .htm 檔名。
+   */
   function isValidPage(rel) {
     if (!rel || rel.startsWith('/') || rel.includes('\\')) return false;
-    if (rel.split('/').some((seg) => seg === '' || seg === '.' || seg === '..')) return false;
+    const segs = rel.split('/').filter((s) => s !== '');
+    if (segs.length === 0) return false;
+    if (segs.some((seg) => seg === '.' || seg === '..')) return false;
+
+    // 目錄式網址：結尾斜線，或整段不含副檔名
+    const isDirStyle = rel.endsWith('/') || !/\.[a-z0-9]+$/i.test(rel);
+    if (isDirStyle) {
+      // 排除入口網站自己
+      return !(segs.length === 1 && segs[0] === 'index.html');
+    }
+
+    // 檔案式網址（保留舊連結相容）
     if (!/\.html?$/i.test(rel)) return false;
-    if (/^index\.html?$/i.test(rel)) return false; // 避免把入口網站自己載入 iframe
+    if (/^index\.html?$/i.test(rel) && segs.length === 1) return false;
     return true;
   }
 
@@ -59,6 +74,8 @@
     } catch (_) {
       return null;
     }
+    // 入口網站本身不是規則頁面
+    if (rel === '' || /^index\.html?$/i.test(rel)) return null;
     return isValidPage(rel) ? rel : null;
   }
 

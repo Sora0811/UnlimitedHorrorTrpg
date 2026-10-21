@@ -240,7 +240,7 @@ dTree.prototype.node = function(node, nodeId) {
 
 	if (node.url) {
 
-		str += '<a id="s' + this.obj + nodeId + '" class="' + ((this.config.useSelection) ? ((node._is ? 'nodeSel' : 'node')) : 'node') + '" target="body" href="' + node.url + '"';
+		str += '<a id="s' + this.obj + nodeId + '" class="' + ((this.config.useSelection) ? ((node._is ? 'nodeSel' : 'node')) : 'node') + '" href="' + node.url + '"';
 
 		if (node.title) str += ' title="' + node.title + '"';
 
