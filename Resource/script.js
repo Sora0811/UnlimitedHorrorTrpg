@@ -2,7 +2,7 @@
  *
  * 狀態表示方式（單一策略）：
  *   入口網址  index.html?page=<規則頁面相對路徑>#<頁內錨點>
- *   例：index.html?page=简介.htm#section2
+ *   例：index.html?page=規則/本書說明/简介.htm#section2
  * 沒有 page 參數時載入 DEFAULT_PAGE。
  */
 (() => {
@@ -10,7 +10,7 @@
 
   /* ===== 設定 ===== */
   const SITE_TITLE = 'Unlimited Horror TRPG';
-  const DEFAULT_PAGE = '234/简介.htm';   // 預設閱讀頁面（相對於 index.html 所在資料夾）
+  const DEFAULT_PAGE = '規則/本書說明/简介.htm';   // 預設閱讀頁面（相對於 index.html 所在資料夾）
   const PAGE_PARAM = 'page';
   const AI_MIN = 0.2;
   const AI_MAX = 0.4;

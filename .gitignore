@@ -1,0 +1,7 @@
+﻿# 建置產物
+build/*.json
+
+# 系統檔案
+Thumbs.db
+desktop.ini
+.DS_Store
