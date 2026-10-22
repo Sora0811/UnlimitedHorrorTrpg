@@ -114,17 +114,14 @@ Resource/
 
 ## 3. 進行中與未完成項目
 
-### 3.1 ⚠️ 資源抽取器（本階段主要工作，**未完成**）
+### 3.1 ✅ 資源抽取器（三個系統性缺口已於 2026-10-22 修好）
 
-**兩個未追蹤的檔案（尚未 commit）**
-```
-build/classify_resources.py    頁面分類器
-build/extract_entries.py       條目抽取器
-```
+**狀態**：抽取器已可作為資料來源。欄位保留率 100%、價格解析率 98.8%、回歸測試 21 項全通。
+詳細記錄見 README §7.4（分段執行）、§7.6（三缺口修正）。
 
-**已完成的進展**
+**追蹤狀態**：`build/classify_resources.py`、`build/extract_entries.py`、`build/extract_batch.py`、`build/test_extract.py` **已進版控**。
 
-`classify_resources.py` ✅ 可執行，已產出 `build/resource-classify.json`
+**`classify_resources.py`** ✅ 已產出 `build/resource-classify.json`
 
 掃描 1148 頁的結果：
 | 類別 | 數量 | 特徵 |
@@ -136,30 +133,45 @@ build/extract_entries.py       條目抽取器
 
 ⚠️ 注意：此數字包含 `Resource/index.html` 等非條目頁，與導航的 1147 有 1 之差。
 
-`extract_entries.py` ⚠️ **可執行，寫輪眼已抽對，但尚未全面驗證**
+**`extract_batch.py`** ✅ 分段批次執行器，57 段、每段 20–21 頁、全站約 5 秒
+- `plan` → `run` → `merge` → `status`
+- 原子寫入、續跑、錯誤隔離、可疑頁偵測（見 README §7.4）
 
-**已驗證的抽取結果**
+**`extract_entries.py`** ✅ 條目抽取器，三個缺口已修
+
+| 缺口 | 修法 | 成效 |
+|---|---|---|
+| ① 只認 `====` 分隔線 | 兩層切分：`====` 優先 + 段落規則（「名稱 + 本質：」） | 條目 3077 → 3419 |
+| ② 同名字段只留第一個 | 第一個值留 `fields[name]`，全部收進 `fields_multi[name]` | 保留率 77.6% → 100%（救回 13,561 個值） |
+| ③ 價格 `re.fullmatch` 太嚴 | 取開頭價格 token，其餘歸入 `price_note` | 解析率 89.7% → 98.8% |
+
+**已驗證的抽取結果**（`build/test_extract.py`，21 項）
 | 頁面 | 結果 |
 |---|---|
-| `資源/瞳術/寫輪眼` | ✅ 5 等級（D/C/B/A/S）、15 個技能樹能力全部抽出，價格 100% 解析 |
-| `資源/血統/…/賽亞人` | ✅ 5 等級（D/C/B/A/S），等級標題與屬性正確 |
-| `資源/物品/…/D級手槍系列` | ✅ 6 個條目，含本質/價格/分類/體積/前提/武器屬性 |
+| `資源/瞳術/寫輪眼` | ✅ 1 條目、5 等級（D/C/B/A/S）、15 能力分布 1/3/6/3/2、複製眼 C+1000 |
+| `資源/血統/…/賽亞人` | ✅ 1 條目、5 等級、標籤（賽亞人/賽亞人戰士/賽亞人精英戰士/皇族血脈（貝吉塔王）/超級賽亞人） |
+| `資源/物品/…/D級手槍系列` | ✅ 6 條目 |
+| `資源/技藝/…/玲瓏骰` | ✅ 4 條目（無 `====`，靠段落規則切） |
+| `資源/物品/…/C級武器` | ✅ 80 條目（杖身子項目未被誤切成條目） |
+| `資源/能量池/…/通用D級法術` | ✅ 65 條目 |
 
-**最近一次修正（尚未 commit、尚未完整回歸測試）**
-1. `TREE_RE` 要求技能樹名稱至少 1 字（修正「等級 C/B/A 被技能樹標題吃掉」）
-2. `ABILITY_RE` 排除名稱前面是冒號的情形（修正「科技本質」被誤判為能力名）
-3. 技能樹能力改依**等級字母配對**歸屬（修正「所有能力都掛在 S 級底下」）
-4. 顯示格式改用 `pr['branch']`（修正「C+1000 顯示成 D+1000」）
-
-⚠️ **第 4 項修正後尚未重跑驗證輸出。**
+**改完 `extract_entries.py` 務必跑**：
+```bash
+python build/test_extract.py    # 退出碼 0 = 全數通過
+```
 
 ### 3.2 ❌ 尚未開始
 
 - 資源 schema 補完（見 §5.2）
-- 全量抽取（1020 頁）
+- 全量抽取**結果**的後續處理（`build/extract-all.json` 已產出，但不入版控）
 - 價格預設值機制（見 §5.1）
 - 標籤抽取與搜尋
 - 規則區處理（維護者決定先保留）
+
+### 3.3 ⚠️ 待維護者確認
+
+1. **空頁 `Resource/資源/物品/魔幻本質/智能神器/index.html`（358 bytes）** —— body 只有 `<P>&nbsp;</P>`，等同空白頁。**已刻意不刪**（屬結構變更）。已被 `extract_batch.py` 的可疑偵測標記，不會靜默混入結果。
+2. **剩餘 69 筆價格無法解析** —— 全部是「價格是原來的 50 倍」「價格爲5 00 分 1 發」這類倍數／單位描述，本來就沒有絕對數值。依「不硬猜」原則標記為 `null` + 警告。若維護者希望改用其他表示法（例如倍數欄位），需先確認。
 
 ---
 
@@ -323,49 +335,44 @@ schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030E)
 
 | 路徑 | 說明 |
 |---|---|
-| `README.md` | 專案現況與變更紀錄（246 行，維護者要求持續更新） |
+| `README.md` | 專案現況與變更紀錄（維護者要求持續更新） |
 | `Resource/left.htm` | 導航樹，**由腳本生成，不要手改** |
 | `Resource/script.js` | 入口網站邏輯（含 `isValidPage`） |
 | `Resource/dtree.js` | 導航樹元件 |
 | `build/gen_nav_fs.py` | 導航生成器，**順序由 `ORDER` dict 控制** |
 | `build/original-order.json` | 原始 CHM 編排順序（**必須進版控**，已加 .gitignore 例外） |
-| `build/resource-classify.json` | 1148 頁分類結果 |
-| `build/extract-sample.json` | 抽取器小樣本輸出 |
+| `build/classify_resources.py` | 頁面分類器 |
+| `build/resource-classify.json` | 1148 頁分類結果（產物，不入版控） |
+| `build/extract_entries.py` | 條目抽取器（核心） |
+| `build/extract_batch.py` | 分段批次執行器（`plan`/`run`/`merge`/`status`） |
+| `build/test_extract.py` | **回歸測試**（21 項；改完抽取器必跑） |
+| `build/extract-sample.json` | 抽取器小樣本輸出（產物，不入版控） |
+| `build/extract-parts/` | 分段結果與 manifest（產物，不入版控） |
+| `build/extract-all.json` | 全站合併結果（產物，不入版控） |
 | `Resource/_chm源檔/` | CHM 原始產物與佔位頁備份 |
 
 ---
 
 ## 7. 下一個會話最優先的工作
 
-### 第 1 優先：驗證抽取器（⚠️ 最緊急）
-
-最近四個修正**尚未完整回歸測試**。先跑：
-
-```bash
-cd D:\Users\a2463\Document\deepseek-harness\default-workspace\UHtrpg
-python build/extract_entries.py
-```
-
-**檢查重點**
-- 寫輪眼：5 等級、15 能力，價格顯示為 `C+1000` 而非 `D+1000`
-- D級手槍系列：6 個條目
-- 賽亞人：5 等級
-- **不要**再出現「科技本質」被當成能力名
-
-### 第 2 優先：擴大樣本，確認抽取器的邊界
-
-目前只驗證 3 頁。建議從 `build/resource-classify.json` 各類別抽樣：
-- MULTI 抽 5 頁（清單頁）
-- SINGLE 抽 5 頁
-- HYBRID 抽 5 頁（分級條目）
-- PROSE 抽 3 頁（確認應標為不套 schema）
-
-**目標**：找出抽取器在哪些情況下會失敗，而不是急著跑全量。
-
-### 第 3 優先：與維護者確認 schema 補完
+### 第 1 優先：與維護者確認 schema 補完
 
 已發現 schema 缺漏（`分類`、`體積`、`武器基本屬性`、`武器特殊屬性`）。
 建議先出**一份對照表**給維護者確認，再改 schema。
+
+抽取器的資料品質問題已在 2026-10-22 修完（見 §3.1、README §7.6），
+全站 1147 頁已可抽出成 `build/extract-all.json`（不入版控，隨時可重建）。
+**下一步不是修抽取器，而是定義 schema 給資料庫／App 用。**
+
+### 第 2 優先：把抽取結果變成可用的 schema
+
+現在的輸出是「忠實反映原文的欄位字典」，但**不是資料庫 schema**。需要決定：
+- 條目、條目內的等級、等級內的能力，三者的關係怎麼定
+- `fields_multi`（陣列）怎麼映射到資料表（一對多？序列化？）
+- `price_note`（價格後的說明文字）算不算正式欄位
+- 條目的穩定識別碼怎麼產生（路徑？名稱？兩者？）
+
+### 第 3 優先：價格預設值機制（見 §5.1）
 
 ---
 
@@ -379,6 +386,9 @@ python build/extract_entries.py
 6. **不要對頁面整體套用 OpenCC s2t** —— 會把正確的繁體改壞（README §6 有記錄）
 7. **維護者要求 README.md 持續更新** —— 每次改動都要寫進變更紀錄
 8. **抽取器設計原則** —— 只讀不寫、不硬猜、無法解析就標記 null + warning
+9. **改完 `extract_entries.py` 必跑 `python build/test_extract.py`** —— 21 項回歸測試，退出碼 0 才算通過
+10. **重跑抽取用分段批次，不要一次抽全站** —— `plan` → `run` → `merge`（README §7.4）
+11. **不要刪除 `智能神器/index.html`** —— 屬結構變更，待維護者確認（§3.3）
 
 ---
 
@@ -389,3 +399,4 @@ python build/extract_entries.py
 - 維護者重視**可追溯性**與**不硬猜**，偏好「標記不確定」勝過「自動填補」
 - 維護者已明確表示：**分工是「AI 做本地整理與 commit，維護者負責 push」**
 - 維護者曾因 Copilot 陷入「驗證循環」而中止資源規範化工作 —— **接手時應避免逐頁問答式逼近目標**，改用「先定義規格、再批次驗證、輸出報告」的方式
+- 維護者**想看作業過程** —— 曾主動要求把思考過程改用中文輸出。過程可見對維護者有價值，別只給結論。

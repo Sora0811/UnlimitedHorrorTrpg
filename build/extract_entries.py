@@ -79,44 +79,91 @@ def norm(s: str) -> str:
     return s.translate(FULLWIDTH).strip()
 
 
+# 價格：取「開頭的價格 token」，其餘文字留在備註欄。
+# 舊版用 fullmatch，導致 11% 的價格解析失敗（2026-10-22 實測）。
+# 實務上原文常見「D+500 強效施法：…」「C+1000 消耗：見下」這類寫法，
+# 價格只是欄位開頭的一小段，後面是別的欄位或說明。
+PRICE_LEAD_RE = re.compile(
+    r"^\s*(?:"
+    r"(?P<br1>[DCBASdcbas]{1,3})\s*\+\s*(?P<pts1>\d+)\s*\+\s*(?P<xp1>\d+)\s*[xX]\s*[pP]"
+    r"|(?P<xp0>\d+)\s*[xX]\s*[pP]"
+    r"|(?P<br2>[DCBASdcbas]{1,3})\s*\+\s*(?P<pts2>\d+)"
+    r"|(?P<pts3>\d+)"
+    r"|(?P<br3>[DCBASdcbas]{1,3})\s*\+"
+    r")"
+)
+
+# 「總價」寫法：「特殊(總價D+2000)」「水晶劍的卷軸總價DD+500」
+PRICE_TOTAL_RE = re.compile(
+    r"總價\s*[：:]?\s*(?P<br>[DCBASdcbas]{1,3})\s*\+?\s*(?P<pts>\d+)"
+)
+
+
 def parse_price(raw: str):
-    """價格 → {branch, points, xp}。三種組合：支線+分數 / 純XP / 三者並存。"""
-    s = norm(raw).replace(" ", "")
+    """價格 → ({branch, points, xp}, warning, note)
+
+    只取開頭的價格 token；其餘文字原樣放進 note，避免資料蒸發。
+    回傳 (price, warning, note)：
+      price 為 None 代表完全無法從開頭讀出價格
+      note  為價格之後的說明文字（可能為空字串）
+    """
+    s = norm(raw)
     if not s:
-        return None, "價格為空"
+        return None, "價格為空", ""
 
-    m = re.fullmatch(r"(\d+)[xX][pP]", s)
+    m = PRICE_LEAD_RE.match(s)
     if m:
-        return {"branch": None, "points": None, "xp": int(m.group(1))}, None
-
-    m = re.fullmatch(r"([DCBAS]{1,3})?\+?(\d+)?(?:\+(\d+)[xX][pP])?", s)
-    if m and (m.group(1) or m.group(2)):
-        br, pts, xp = m.group(1), m.group(2), m.group(3)
+        br = (m.group("br1") or m.group("br2") or m.group("br3") or "").upper() or None
+        pts = m.group("pts1") or m.group("pts2") or m.group("pts3")
+        xp = m.group("xp1") or m.group("xp0")
+        note = s[m.end():].strip()
+        # 只讀到支線、沒有分數
+        warn = None
+        if pts is None and xp is None:
+            warn = "只有支線，缺分數"
         return {
             "branch": br,
             "points": int(pts) if pts else None,
             "xp": int(xp) if xp else None,
-        }, None
+        }, warn, note
 
-    m = re.fullmatch(r"([DCBAS]{1,3})\+?", s)
-    if m:
-        return {"branch": m.group(1), "points": None, "xp": None}, "只有支線，缺分數"
+    # 「總價」寫法
+    mt = PRICE_TOTAL_RE.search(s)
+    if mt:
+        return {
+            "branch": mt.group("br").upper(),
+            "points": int(mt.group("pts")),
+            "xp": None,
+        }, None, s.strip()
 
-    return None, f"無法解析價格: {raw!r}"
+    return None, f"無法解析價格: {raw!r}", s.strip()
 
 
 def split_fields(segment: str):
-    """→ ({欄位: 值}, [warning])"""
-    fields, warnings = {}, []
+    """→ ({欄位: 值}, [warning])
+
+    同一個欄位可能出現多次（例如一個條目有多段「描述」、多個「價格」）。
+    舊版遇到重複就直接丟棄，導致 85% 的欄位資料蒸發（2026-10-22 實測）。
+    現在保留第一個值當主值，其餘收進「_multi」附表，不再遺失。
+
+    回傳 (fields, warnings, multi)：
+      fields[name]          → 第一個出現的值（字串，向後相容）
+      multi[name]          → 所有出現的值（list，含第一個）
+    """
+    fields, warnings, multi = {}, [], {}
     marks = [(m.start(), m.group(1), m.end()) for m in FIELD_RE.finditer(segment)]
     for i, (pos, name, vstart) in enumerate(marks):
         end = marks[i + 1][0] if i + 1 < len(marks) else len(segment)
         value = segment[vstart:end].strip(" ：:")
+        if not value:
+            continue
+        multi.setdefault(name, []).append(value)
         if name in fields:
-            warnings.append(f"欄位重複：{name}")
+            # 不丟棄：記錄在 multi 裡，並降級為提示而非警告
+            warnings.append(f"欄位重複：{name}（已保留 {len(multi[name])} 個值）")
             continue
         fields[name] = value
-    return fields, warnings
+    return fields, warnings, multi
 
 
 def find_marks(text: str):
@@ -169,6 +216,7 @@ def build_entry(block: str, name_hint: str = None):
     entry = {
         "name": name_hint,
         "fields": {},
+        "fields_multi": {},
         "levels": [],
         "price": None,
         "warnings": [],
@@ -176,25 +224,31 @@ def build_entry(block: str, name_hint: str = None):
 
     marks = find_marks(block)
     if not marks:
-        f, w = split_fields(block)
+        f, w, m = split_fields(block)
         entry["fields"] = f
+        entry["fields_multi"] = m
         entry["warnings"] += w
-        p, pw = parse_price(f.get("價格", "")) if "價格" in f else (None, None)
+        p, pw, note = parse_price(f.get("價格", "")) if "價格" in f else (None, None, "")
         entry["price"] = p
         if pw:
             entry["warnings"].append(pw)
+        if note:
+            entry["price_note"] = note
         return entry
 
     # 第一個邊界前 = 本體
     if marks[0]["pos"] > 5:
-        f, w = split_fields(block[: marks[0]["pos"]])
+        f, w, m = split_fields(block[: marks[0]["pos"]])
         entry["fields"] = f
+        entry["fields_multi"] = m
         entry["warnings"] += w
         if "價格" in f:
-            p, pw = parse_price(f["價格"])
+            p, pw, note = parse_price(f["價格"])
             entry["price"] = p
             if pw:
                 entry["warnings"].append(pw)
+            if note:
+                entry["price_note"] = note
 
     current_level = None
     current_tree_level = None   # 技能樹區塊所屬的等級（依字母配對）
@@ -204,7 +258,8 @@ def build_entry(block: str, name_hint: str = None):
         for lv in entry["levels"]:
             if lv["level"] == letter:
                 return lv
-        lv = {"level": letter, "label": "", "fields": {}, "price": None,
+        lv = {"level": letter, "label": "", "fields": {}, "fields_multi": {},
+              "price": None,
               "tree": [], "warnings": ["技能樹區塊無對應等級，已自動建立"]}
         entry["levels"].append(lv)
         return lv
@@ -212,13 +267,14 @@ def build_entry(block: str, name_hint: str = None):
     for i, mk in enumerate(marks):
         end = marks[i + 1]["pos"] if i + 1 < len(marks) else len(block)
         seg = block[mk["pos"]:end]
-        f, w = split_fields(seg)
+        f, w, mm = split_fields(seg)
 
         if mk["kind"] == "level":
             current_level = {
                 "level": mk["level"],
                 "label": "",
                 "fields": f,
+                "fields_multi": mm,
                 "price": None,
                 "tree": [],
                 "warnings": list(w),
@@ -228,10 +284,12 @@ def build_entry(block: str, name_hint: str = None):
             if m:
                 current_level["label"] = m.group(1).strip()
             if "價格" in f:
-                p, pw = parse_price(f["價格"])
+                p, pw, note = parse_price(f["價格"])
                 current_level["price"] = p
                 if pw:
                     current_level["warnings"].append(pw)
+                if note:
+                    current_level["price_note"] = note
             entry["levels"].append(current_level)
             current_tree_level = None
 
@@ -244,14 +302,17 @@ def build_entry(block: str, name_hint: str = None):
             ability = {
                 "name": mk["name"],
                 "fields": f,
+                "fields_multi": mm,
                 "price": None,
                 "warnings": list(w),
             }
             if "價格" in f:
-                p, pw = parse_price(f["價格"])
+                p, pw, note = parse_price(f["價格"])
                 ability["price"] = p
                 if pw:
                     ability["warnings"].append(pw)
+                if note:
+                    ability["price_note"] = note
             else:
                 ability["warnings"].append("能力缺價格")
 
@@ -265,19 +326,138 @@ def build_entry(block: str, name_hint: str = None):
     return entry
 
 
+# ---------------------------------------------------------------- 段落切分
+#
+# 條目邊界的判斷依據（2026-10-22 實測確立）
+# --------------------------------------------
+# 原始 HTML 是 <P> 段落序列。條目與條目之間的結構訊號有兩種：
+#
+#   1. 「====」分隔線 —— 166/1147 頁有，是最可靠的邊界
+#   2. 段落邊界 —— 其餘頁靠「名稱段 + 欄位組」隱含切分
+#
+# 段落規則：
+#   候選點 = 非欄位開頭的段落，且下一個非空段落是欄位開頭
+#   條目起點 = 候選點，且下一欄位屬於 ENTRY_FIELDS（本質/名稱/稱號/血統）
+#   等級起點 = 段落本身是等級標題，或段內含「技能樹：開啓X級」→ 不切新條目
+#
+# 為什麼要要求「下一欄位是本質」：資源條目一定帶本質（物品、血統、瞳術…），
+# 而子項目（魔杖的「樺木」杖身、喪屍的「力量型」分支）只帶價格，不帶本質。
+
+PARA_RE = re.compile(r"<[Pp]\b[^>]*>(.*?)</[Pp]>", re.S)
+LEVEL_TITLE_RE = re.compile(r"^\s*([DCBAS]{1,3})\s*級")
+TREE_OPEN_RE = re.compile(r"技能樹\s*[：:]\s*開啓\s*([DCBAS]{1,3})\s*級")
+
+# 資源條目的主體欄位——只有帶這些欄位的段落才是「條目起點」
+ENTRY_FIELDS = {"本質", "名稱", "稱號", "血統"}
+
+# 條目名稱段的長度上限。超過這個長度多半是描述文字，不是名稱。
+# 實測最長的真實名稱是「復仇火銃：失敗保護者的最後懺悔」（17 字）、
+# 「名器·恆嶽松雲」（8 字），取 30 留緩衝。
+NAME_MAX_LEN = 30
+
+
+def get_paragraphs(html: str):
+    """取出 <P> 段落文字序列，保留段落邊界。"""
+    out = []
+    for seg in PARA_RE.findall(html):
+        t = TAG_RE.sub(" ", seg).replace("&nbsp;", " ")
+        out.append(re.sub(r"\s+", " ", t).strip())
+    return out
+
+
+def para_field(t: str):
+    """段落開頭的欄位標籤；不是欄位則回 None。"""
+    m = re.match(r"\s*([^\s：:]{1,12})\s*[：:]", t)
+    if m and m.group(1) in FIELD_NAMES:
+        return m.group(1)
+    return None
+
+
+def next_nonempty(paras, i):
+    """(索引, 文字)：i 之後第一個非空段落。"""
+    for j in range(i + 1, len(paras)):
+        if paras[j]:
+            return j, paras[j]
+    return None, ""
+
+
+def is_separator(t: str) -> bool:
+    """是否為 ==== 分隔線。"""
+    return bool(SEP_RE.fullmatch(t.strip()))
+
+
+def find_entry_starts(paras):
+    """段落區塊內的條目起點索引。"""
+    cands = []
+    for i, t in enumerate(paras):
+        if not t or para_field(t) is not None:
+            continue
+        j, nxt = next_nonempty(paras, i)
+        if j is None or para_field(nxt) is None:
+            continue
+        cands.append(i)
+
+    starts = []
+    for k, i in enumerate(cands):
+        end = cands[k + 1] if k + 1 < len(cands) else len(paras)
+        seg = " ".join(paras[i:end])
+        # 等級標題 / 技能樹開啓 → 是等級，不是新條目
+        if LEVEL_TITLE_RE.match(paras[i]):
+            continue
+        if TREE_OPEN_RE.search(seg):
+            continue
+        # 名稱段不該以標點開頭（那是描述文字被誤判）
+        if paras[i][0] in "：:，,。、；;（「『\"'":
+            continue
+        # 名稱段應該短。描述文字後面剛好接「本質：」時會被誤判成條目起點
+        # （例如「劍反：當你受到近戰攻擊時…本质：」），用長度上限排除。
+        if len(paras[i]) > NAME_MAX_LEN:
+            continue
+        j, nxt = next_nonempty(paras, i)
+        if para_field(nxt) in ENTRY_FIELDS:
+            starts.append(i)
+    return starts
+
+
+def split_page_blocks(html: str):
+    """整頁切成條目區塊（list of str）。
+
+    層 1：==== 分隔線切塊
+    層 2：塊內用段落規則再切
+    """
+    paras = get_paragraphs(html)
+
+    raw_blocks, cur = [], []
+    for t in paras:
+        if is_separator(t):
+            raw_blocks.append(cur)
+            cur = []
+        else:
+            cur.append(t)
+    raw_blocks.append(cur)
+
+    out = []
+    for blk in raw_blocks:
+        blk = [t for t in blk if t]
+        if not blk:
+            continue
+        starts = find_entry_starts(blk)
+        if starts:
+            for k, i in enumerate(starts):
+                end = starts[k + 1] if k + 1 < len(starts) else len(blk)
+                out.append(" ".join(blk[i:end]))
+        else:
+            out.append(" ".join(blk))
+    return out
+
+
 def analyze_page(path: Path):
-    text = plain(path.read_text(encoding="utf-8", errors="replace"))
+    html = path.read_text(encoding="utf-8", errors="replace")
+    text = plain(html)
     rel = path.parent.relative_to(RES).as_posix()
     page = {"path": rel, "chars": len(text), "entries": [], "warnings": []}
 
-    chunks = []
-    cursor = 0
-    for m in SEP_RE.finditer(text):
-        chunks.append(text[cursor:m.start()])
-        cursor = m.end()
-    chunks.append(text[cursor:])
-
-    for chunk in chunks:
+    for chunk in split_page_blocks(html):
         chunk = chunk.strip()
         if len(chunk) < 20:
             continue
@@ -287,7 +467,6 @@ def analyze_page(path: Path):
         page["entries"].append(build_entry(chunk, hint))
 
     return page
-
 
 def summarize(page):
     print("=" * 76)
