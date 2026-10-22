@@ -3,7 +3,7 @@
 
 用途
 ----
-把 `extract_entries.py` 的全站遍歷拆成許多小段，每段獨立落盤。
+把 `extract_v4.py` 的全站遍歷拆成許多小段，每段獨立落盤。
 任何一段中斷或失敗，都只影響那一段；重跑時已完成的段會被跳過。
 
 為什麼要分段
@@ -12,7 +12,7 @@
 而是「中斷後整份輸出要重來」。分段 + 續跑把重做成本壓到最小：
 最壞情況只需要重跑一段。
 
-設計原則（沿用 extract_entries.py 的「只讀不寫、不硬猜」）
+設計原則（沿用 extract_v4.py 的「只讀不寫、不硬猜」）
 ----------------------------------------------------------
 - 只讀 Resource/，不修改任何來源檔
 - 每段輸出寫成獨立檔案，再合併；來源資料不被覆寫
@@ -49,7 +49,7 @@ RES = ROOT / "Resource"
 BUILD = ROOT / "build"
 sys.path.insert(0, str(BUILD))
 
-import extract_entries as E  # noqa: E402
+import extract_v4 as E  # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8")
 

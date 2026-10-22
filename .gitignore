@@ -9,6 +9,10 @@ build/extract-all.json
 # 否則 clone 後 gen_nav_fs.py 找不到它，各分類會退回名稱排序
 !build/original-order.json
 
+# 例外：欄位詞典是抽取器的 schema 來源，維護者要能調整欄位範圍
+# 進版控後，clone 者才會抽出一致的結果
+!build/field_schema.json
+
 # 系統檔案
 Thumbs.db
 desktop.ini
