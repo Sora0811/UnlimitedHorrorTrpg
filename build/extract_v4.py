@@ -196,6 +196,15 @@ LEVEL_PATTERNS = [
 LEVEL_ONLY_RE = re.compile(r"^\s*([DCBAS]{1,3})\s*級\s*$")
 LEVEL_TIGHT_RE = re.compile(r"^\s*([DCBAS]{1,3})\s*級\s*([^\s：:]{1,20})\s*$")
 
+# 數字等級（專長、仙靈契約頁）：「1 級：」「2 級：荒野生存」
+# branch 用數字字串（"1" / "2"），跟 DCBAS 字母級別分開處理。
+NUM_LEVEL_PATTERNS = [
+    re.compile(r"^\s*(\d{1,2})\s*級\s*[：:]\s*(.*)$"),
+    re.compile(r"^\s*(\d{1,2})\s*級\s+(.*)$"),
+]
+NUM_LEVEL_ONLY_RE = re.compile(r"^\s*(\d{1,2})\s*級\s*$")
+NUM_LEVEL_TIGHT_RE = re.compile(r"^\s*(\d{1,2})\s*級\s*([^\s：:]{1,20})\s*$")
+
 # 技能樹標題：「D級寫輪眼技能樹：」「B級港漫武者技能樹」
 TREE_RE = re.compile(
     r"^\s*([DCBAS]{1,3})\s*級\s*([^\s：:]{0,20}?)\s*技能樹\s*[：:]?\s*$")
@@ -323,10 +332,12 @@ def looks_like_label(name: str) -> bool:
 
 
 def level_heading(t: str):
-    """段落是等級標題？→ (字母, 名稱) 或 None。
+    """段落是等級標題？→ (branch, 名稱) 或 None。
 
     排除正文裡的「A ：強力攻擊插件。使用這把手槍…」這類冒號句
     ——名稱太長、且含句號，就不是等級名。
+
+    同時支援數字等級（專長、仙靈契約頁）：「1 級：」「2 級：荒野生存」。
     """
     if is_tree_heading(t):
         return None
@@ -342,6 +353,24 @@ def level_heading(t: str):
     if m:
         return m.group(1), ""
     m = LEVEL_TIGHT_RE.match(t)
+    if m:
+        name = m.group(2).strip()
+        if not looks_like_label(name):
+            return None
+        return m.group(1), name
+
+    # --- 數字等級
+    for pat in NUM_LEVEL_PATTERNS:
+        m = pat.match(t)
+        if m:
+            name = m.group(2).strip()
+            if name and not looks_like_label(name):
+                return None
+            return m.group(1), name
+    m = NUM_LEVEL_ONLY_RE.match(t)
+    if m:
+        return m.group(1), ""
+    m = NUM_LEVEL_TIGHT_RE.match(t)
     if m:
         name = m.group(2).strip()
         if not looks_like_label(name):
@@ -543,6 +572,14 @@ def find_entry_starts(paras):
 
     候選點 = 非欄位開頭、也不是等級標題的段落，且下一個非空段落是欄位開頭
     條目起點 = 候選點，且下一欄位 ∈ {本質, 名稱, 稱號, 血統}
+
+    另有一條「群組標題式」規則（專長頁、仙靈契約頁）：
+        方向感（ 1 ）：
+        前提：需求感知 2
+        1 級：
+    這裡條目名本身以「：」結尾，看起來像群組標題，但它後面接的是
+    「前提」這類 schema 欄位（不在 ENTRY_FIELDS 裡），所以原本抓不到。
+    判準：以「：」結尾的短段 + 後接 schema 欄位 → 也是條目起點。
     """
     cands = []
     for i, t in enumerate(paras):
@@ -578,6 +615,38 @@ def find_entry_starts(paras):
     return starts
 
 
+def find_group_style_starts(paras):
+    """群組標題式的條目起點（「方向感（ 1 ）：」）。
+
+    以「：」結尾的短段，且下一個非空段落是 schema 欄位（不在 ENTRY_FIELDS 也算）。
+
+    與真的群組標題（「套裝：」）的區別：
+      - 真的群組標題 → any_label() 有值（「套裝」像個欄位標籤）
+      - 專長條目名   → any_label() 為 None（「方向感（ 1 ）」含全形括號）
+    """
+    starts = []
+    for i, t in enumerate(paras):
+        if not t or t.rstrip("：:").strip() == t:
+            continue                       # 不是以冒號結尾
+        head = t.rstrip("：:").strip()
+        if not head or len(head) > NAME_MAX_LEN:
+            continue
+        if head[0] in "：:，,。、；;（「『\"'":
+            continue
+        if is_prose(head):
+            continue
+        if any_label(t):
+            continue                       # 真的群組標題（「套裝：」）
+        j, nxt = next_nonempty(paras, i)
+        if j is None or para_label(nxt) is None:
+            continue
+        lab = canon_field(para_label(nxt)[0])
+        if lab in ENTRY_FIELDS:
+            continue                       # 已被 find_entry_starts 處理
+        starts.append(i)
+    return starts
+
+
 def split_page_blocks(html: str):
     """整頁切成條目區塊（list of list[str]，每個內部是段落序列）。
 
@@ -600,7 +669,7 @@ def split_page_blocks(html: str):
         blk = [t for t in blk if t]
         if not blk:
             continue
-        starts = find_entry_starts(blk)
+        starts = sorted(set(find_entry_starts(blk)) | set(find_group_style_starts(blk)))
         if starts:
             # 段落 0 到第一個起點之前是「頁首說明」，也要保留（不能丟資料）
             head = blk[:starts[0]]
@@ -643,21 +712,32 @@ def build_from_paras(paras, name_hint):
     # 區塊終止於：等級標題 / 技能樹標題 / 群組標題 / 下一個名稱段。
     # 名稱段 = 短名稱段，且其後（到下一個名稱段為止）含有 schema 欄位。
     breaks = {}          # breaks[k] = True 表示第 k 段是終止點
+    # 條目名本身可能帶冒號（「方向感（ 1 ）：」）——這時第 0 段是名稱而不是群組標題。
+    # 判準：name_hint 去掉尾冒號後與第 0 段相符。
+    entry_name = (name_hint or "").strip()
+    entry_name_bare = entry_name.rstrip("：:").strip()
+    # 第 0 段是「群組標題式條目名」：形如「方向感（ 1 ）：」——以冒號結尾。
+    # 只有這種才走「條目名段落」分支；普通的第 0 段（「魔杖」）是正常名稱。
+    head_is_name = bool(entry_name_bare) and n > 0 and \
+        paras[0].rstrip("：:").strip() == entry_name_bare and \
+        paras[0].rstrip("：:").strip() != paras[0].strip()
     for k in range(n):
         t = paras[k]
         if not t:
             continue
+        if k == 0 and head_is_name:
+            continue                       # 第 0 段是條目名
         if level_heading(t) or is_tree_heading(t) or is_group_header(t):
             breaks[k] = True
 
     name_idx = set()
-    entry_name = (name_hint or "").strip()
     for k in range(n):
         t = paras[k]
         if not t or breaks.get(k):
             continue
         # 區塊的第一段是條目名稱本身，不是能力/變體
-        if k == 0 and entry_name and t.strip() == entry_name:
+        if k == 0 and (entry_name and t.strip() == entry_name
+                       or head_is_name):
             continue
         if not is_name_para(t):
             continue
@@ -783,6 +863,19 @@ def build_from_paras(paras, name_hint):
         t = paras[i]
         if not t:
             i += 1
+            continue
+
+        # --- 條目名段落（群組標題式：「方向感（ 1 ）：」）
+        #     名稱本身不算欄位，但它後面、到第一個等級標題前的欄位屬於條目。
+        if i == 0 and head_is_name:
+            j = 1
+            while j < n and not (paras[j] and level_heading(paras[j])) \
+                    and not (paras[j] and is_tree_heading(paras[j])):
+                j += 1
+            f, x, nt = collect_fields(paras, 1, j)
+            merge_fields(entry, f, x)
+            entry["notes"].extend(nt)
+            i = j
             continue
 
         # --- 技能樹標題
@@ -926,13 +1019,21 @@ def split_inline_name(t: str):
 def is_prose(t: str) -> bool:
     """這段是散文（句子）而不是名稱？
 
-    判準：含句讀 **且** 夠長。短句仍可能是名稱——
-        「第三質點，Binah。理解」（13 字）是名稱
-        「當你升級至 C 級時，你需要選擇一條道路，一旦選擇不可改變」（25 字）是散文
+    判準（依 16 個實測案例調校）：
+      1. 以句號類標點收尾 → 散文（「這是一枚可以影響他人心靈的寶石。」）
+      2. 很長且句讀密集   → 散文（「當你升級至 C 級時，你需要選擇一條道路，一旦選擇不可改變」）
+      其餘 → 名稱。
+
+    刻意不把「含句讀」當判準，因為名字也常含句讀：
+        「第三質點，Binah。理解」（13 字）
+        「無限恐怖 2.01 規則更新。更新內容缺失」（21 字）
+        「手槍彈，步槍彈，機槍彈可改造類型：」（17 字）
     """
     if not any(ch in t for ch in "，。；！？!?,、"):
         return False
-    return len(t) > 16
+    if t[-1] in "。；！？!?":
+        return True
+    return len(t) > 26 and sum(1 for c in t if c in "，。；！？!?,、") >= 2
 
 
 def analyze_page(path: Path):
@@ -941,21 +1042,105 @@ def analyze_page(path: Path):
     rel = path.parent.relative_to(RES).as_posix()
     page = {"path": rel, "chars": len(text), "entries": [], "warnings": []}
 
+    block_no = 0
+    pending = []          # 還沒找到歸屬的區塊（分類標題等）
+    folder = rel.rsplit("/", 1)[-1]
+
+    def _flush_pending(target):
+        """把待歸屬區塊併進 target 條目。"""
+        for ps in pending:
+            for k, v in (ps.get("fields_multi") or {}).items():
+                target.setdefault("fields_multi", {}).setdefault(k, []).extend(v)
+            for k, v in (ps.get("fields_extra_multi") or {}).items():
+                target.setdefault("fields_extra_multi", {}).setdefault(k, []).extend(v)
+            if ps.get("notes"):
+                target.setdefault("notes", []).extend(ps["notes"])
+        pending.clear()
+
     for seg in split_page_blocks(html):
         seg = [x for x in seg if x.strip()]
         if not seg:
             continue
         joined = " ".join(seg)
-        if len(joined) < 20:
+        starts_with_level = bool(level_heading(seg[0]))
+        # 太短的區塊通常是純標題（例如「血族」只有名稱 + 本質欄位），
+        # 但它正是條目名，所以門檻放寬到 6 字。
+        if len(joined) < 6 and not starts_with_level:
+            continue
+
+        block_no += 1
+
+        # --- 等級區塊合併 -------------------------------------------------
+        # CHM 會用 ==== 把同一條目的各等級切成獨立區塊（血族、骷髏…）。
+        # 這類區塊以等級標題開頭，應併入「前一個條目」成為它的等級，
+        # 而不是各自變成一個沒有名稱的條目。
+        if starts_with_level and page["entries"]:
+            prev = page["entries"][-1]
+            sub = build_from_paras(seg, "")
+            prev["levels"].extend(sub.get("levels", []))
+            if sub.get("abilities"):
+                prev.setdefault("abilities", []).extend(sub["abilities"])
+            if sub.get("variants"):
+                prev.setdefault("variants", []).extend(sub["variants"])
+            for k, v in (sub.get("fields_multi") or {}).items():
+                prev.setdefault("fields_multi", {}).setdefault(k, []).extend(v)
+            for k, v in (sub.get("fields_extra_multi") or {}).items():
+                prev.setdefault("fields_extra_multi", {}).setdefault(k, []).extend(v)
+            if sub.get("notes"):
+                prev.setdefault("notes", []).extend(sub["notes"])
             continue
 
         hint, tail = pick_name(seg, rel)
+        # 同頁多個區塊都沒有像樣的名稱時（fallback 到路徑尾段），
+        # 會出現多個同名條目。加上區塊序號以便區分。
+        if hint == rel.rsplit("/", 1)[-1] and block_no > 1:
+            hint = f"{hint}（{block_no}）"
+
+        # --- 分類標題（頁面標題）→ 不是條目，併進下一個條目 -------------
+        # 「D級手槍系列」頁的第 0 個區塊只有頁面標題，
+        # 真正的條目從下一個區塊開始。
+        if not page["entries"] and not pending and \
+                hint.replace(" ", "").replace("\u3000", "") == folder.replace(" ", "").replace("\u3000", "") \
+                and len(seg) <= 3:
+            pending.append(build_from_paras(seg, hint))
+            continue
+
         entry = build_from_paras(seg, hint)
         if tail:
             entry.setdefault("notes", []).append(tail)
+        _flush_pending(entry)
         page["entries"].append(entry)
 
+    # 頁面結尾還有 pending（整頁只有分類標題）→ 自己也當一個條目
+    if pending:
+        for e in pending:
+            page["entries"].append(e)
+        pending.clear()
+
     return page
+
+
+def _scan_name(seg, start=1):
+    """從第 start 段起往後找第一個「像名稱」的段落；找不到回傳 None。
+
+    排除：欄位開頭、等級標題、技能樹標題、群組標題、任何標籤開頭、
+    太長的段落、以標點開頭的段落、散文（含句讀且長）。
+    """
+    for t in seg[start:]:
+        if not t:
+            continue
+        if para_label(t) or level_heading(t) or is_tree_heading(t):
+            continue
+        if is_group_header(t):
+            continue
+        if len(t) > NAME_MAX_LEN or t[0] in "：:，,。、；;（「『\"'":
+            continue
+        if any_label(t):
+            continue                      # 是某個欄位，不是名稱
+        if is_prose(t):
+            continue                      # 也是散文，繼續找
+        return t
+    return None
 
 
 def pick_name(seg, rel):
@@ -978,24 +1163,27 @@ def pick_name(seg, rel):
             and not is_group_like):
         return first, ""
 
-    # 3) 第 0 段是「名稱：說明」型
+    # 3) 第 0 段是「名稱：說明」型 → 拆出名稱，說明轉 notes
     sp = split_inline_name(first)
     if sp:
         return sp[0], sp[1]
 
+    # 3b) 第 0 段整段以冒號結尾（「無限恐怖 2.01 規則更新。新更新更新如下：」）
+    #     → 冒號前就是條目名。
+    #     但群組標題後面若還有像樣的段落（「總綱」頁的引導句），
+    #     優先用那個——群組標題多半只是分類，後面的才是條目名。
+    if is_group_like:
+        head = first.rstrip("：:").strip()
+        if head and len(head) <= NAME_MAX_LEN and head[0] not in "：:，,。、；;（「『\"'":
+            alt = _scan_name(seg, 1)
+            if alt:
+                return alt, ""
+            return head, ""
+
     # 2) 第 0 段是散文 → 往後找真正的名稱
-    for t in seg[1:]:
-        if para_label(t) or level_heading(t) or is_tree_heading(t):
-            continue
-        if is_group_header(t):
-            continue
-        if len(t) > NAME_MAX_LEN or t[0] in "：:，,。、；;（「『\"'":
-            continue
-        if any_label(t):
-            continue                      # 是某個欄位，不是名稱
-        if is_prose(t):
-            continue                      # 也是散文，繼續找
-        return t, ""
+    alt = _scan_name(seg, 1)
+    if alt:
+        return alt, ""
 
     # 4) 沒有像樣的名稱 → 退回用第 0 段（即使含句讀），
     #    比用路徑尾段有意義（至少是原文開頭的標題）

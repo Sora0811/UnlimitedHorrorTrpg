@@ -19,6 +19,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUT = ROOT / "build/md"
@@ -243,13 +244,29 @@ def nav_order():
     return order
 
 
-def build_index(index_lines, out_root, n_pages, n_entries):
-    """產生總目錄：依導航順序、分層縮排。"""
+def build_index(index_lines, out_root, n_pages, n_entries, publish=False):
+    """產生總目錄：依導航順序、分層縮排。
+
+    呈現方式：用「標題階層」表示分類、條目用清單。
+    不用巢狀縮排清單——GitHub 的 Markdown 在巢狀層級 ≥2 時，
+    4 空格的縮排會被解析成程式碼區塊（code block），格式就壞了。
+
+    publish=True 時額外產生 README.md（GitHub 會優先顯示目錄內的 README.md），
+    並把 INDEX.md 一併留下，方便直接用瀏覽器開 INDEX.md 看。
+    """
     by_path = {p: names for p, names in index_lines}
     order = nav_order()
-    idx = ["# 無限恐怖 TRPG 資源書", "",
-           f"共 {n_pages} 頁、{n_entries} 條目。", "",
-           "目錄順序與網站導航一致。", ""]
+    head = [
+        "# 無限恐怖 TRPG 資源書（Markdown 版）",
+        "",
+        f"本目錄共 **{n_pages}** 頁、**{n_entries}** 條目，由 `build/export_md.py` "
+        "從 `build/extract-all.json` 自動產生。",
+        "",
+        "目錄順序與網站導航一致（讀 `Resource/left.htm`）。",
+        "每個條目的原始 HTML 仍在 [`Resource/`](../Resource/) 目錄下。",
+        "",
+    ]
+    idx = list(head)
 
     emitted = set()
     for url, depth in order:
@@ -257,9 +274,15 @@ def build_index(index_lines, out_root, n_pages, n_entries):
         if path not in by_path:
             continue
         names = by_path[path]
-        idx.append(f"{'  ' * depth}- [{path}]({path}.md)")
+        # 分類用標題階層（最深 h6），頁面本身是可點的連結
+        lvl = min(depth + 1, 5)
+        idx.append("")
+        idx.append("#" * lvl + " " + md_escape(path))
+        idx.append("")
+        idx.append(f"→ [開啟此頁]({quote(path + '.md')})")
+        idx.append("")
         for nm in names:
-            idx.append(f"{'  ' * depth}  - {md_escape(nm)}")
+            idx.append(f"- {md_escape(nm)}")
         emitted.add(path)
 
     # 導航裡沒有的頁面（保險）
@@ -273,7 +296,10 @@ def build_index(index_lines, out_root, n_pages, n_entries):
             for nm in by_path[p]:
                 idx.append(f"  - {md_escape(nm)}")
 
-    (out_root / "INDEX.md").write_text("\n".join(idx) + "\n", encoding="utf-8")
+    body = "\n".join(idx) + "\n"
+    (out_root / "INDEX.md").write_text(body, encoding="utf-8")
+    if publish:
+        (out_root / "README.md").write_text(body, encoding="utf-8")
 
 
 def main():
@@ -283,10 +309,12 @@ def main():
     ap.add_argument("--path", default=None, help="只轉這一頁（相對路徑）")
     ap.add_argument("--section", default=None, help="只轉這一分區")
     ap.add_argument("--no-index", action="store_true", help="不產生總目錄")
+    ap.add_argument("--publish", action="store_true",
+                    help="出版模式：輸出到 repo 根層 md/，並產生 README.md 入口")
     args = ap.parse_args()
 
     data = json.loads(Path(args.src).read_text(encoding="utf-8"))
-    out_root = Path(args.out)
+    out_root = Path(ROOT / "md") if args.publish else Path(args.out)
 
     n_pages = 0
     n_entries = 0
@@ -307,11 +335,13 @@ def main():
         index_lines.append((path, names))
 
     if not args.no_index:
-        build_index(index_lines, out_root, n_pages, n_entries)
+        build_index(index_lines, out_root, n_pages, n_entries, publish=args.publish)
 
     print(f"已輸出 {n_pages} 頁 / {n_entries} 條目 → {out_root}")
     if not args.no_index:
         print(f"總目錄 → {out_root / 'INDEX.md'}")
+        if args.publish:
+            print(f"入口頁 → {out_root / 'README.md'}")
 
 
 if __name__ == "__main__":
