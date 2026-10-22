@@ -114,12 +114,12 @@ Resource/
 
 ## 3. 進行中與未完成項目
 
-### 3.1 ✅ 資源抽取器（v4 段落級重構，2026-10-22）
+### 3.1 ✅ 資源抽取器（v4 段落級重構 + 名稱修正，2026-10-22）
 
-**狀態**：抽取器已可作為資料來源。等級 +21%、能力 +67%、欄位值 +100%、空條目 0、警告 −99%、原文覆蓋率 81.7%、回歸測試 47 項全通。
-詳細記錄見 README §7.4（分段執行）、§7.6（三缺口修正）、**§7.7（v4 重構）**。
+**狀態**：抽取器已可作為資料來源。等級 +21%、能力 +68%、欄位值 +82%、空條目 0、警告 −99%、原文覆蓋率 81.7%、回歸測試 47 項全通。
+詳細記錄見 README §7.4（分段執行）、§7.6（三缺口修正）、**§7.7（v4 重構）**、**§7.8（名稱修正 + Markdown 資源書）**。
 
-**追蹤狀態**：`build/classify_resources.py`、`build/extract_v4.py`、`build/extract_batch.py`、`build/test_extract.py`、`build/field_schema.json` **已進版控**。
+**追蹤狀態**：`build/classify_resources.py`、`build/extract_v4.py`、`build/extract_batch.py`、`build/test_extract.py`、`build/field_schema.json`、`build/export_md.py` **已進版控**。
 
 **`classify_resources.py`** ✅ 已產出 `build/resource-classify.json`
 
@@ -150,15 +150,16 @@ Resource/
 
 **`field_schema.json`** ✅ 欄位詞典，依**跨資源使用範圍**分層：≥30 頁 → `core`（54 個）；5–29 頁 → `extended`（63 個，人工篩選）；<5 頁 → **不建欄位**，原標籤進 `fields_extra_multi`。
 
-**實測對照**（全站 1171 頁）
+**實測對照**（全站 1146 條目頁，2026-10-22 §7.8 名稱修正後重跑）
 
 | 指標 | v3 | v4 |
 |---|---|---|
-| 條目 | 3431 | 3416 |
+| 條目 | 3431 | 3404 |
 | 等級 | 2044 | **2482** |
-| 能力 | 3699 | **6164** |
+| 能力 | 3699 | **6214** |
 | 變體 | 0 | 89 |
-| 欄位值 | 60582 | **121410** |
+| 欄位值（schema） | 60582 | **83017** |
+| 欄位值（含 extra） | 60582 | **110172** |
 | 空條目 | 201 | **0** |
 | 警告 | 5562 | **46** |
 | 覆蓋率 | 72.3% | **81.7%** |
@@ -187,7 +188,7 @@ python build/test_extract.py    # 退出碼 0 = 全數通過
 - 把抽取結果映射成資料庫 schema（見 §7 第 2 優先）
 - 價格預設值機制（見 §5.1）
 - 標籤抽取與搜尋
-- 規則區處理（維護者決定先保留）
+- 規則區處理（維護者已於 2026-10-22 決定**先跳過**，只做資源區）
 
 ### 3.3 ⚠️ 待維護者確認
 
@@ -196,6 +197,7 @@ python build/test_extract.py    # 退出碼 0 = 全數通過
 3. **能力名的「類別 - 名稱」前綴** —— 血族的「感應術 - 靈魂之觸」目前保留完整字串。【決定】維護者指示**先保留原樣**，日後逐項檢查時再處理。
 4. **`fields_extra_multi` 的定位** —— 24,647 個值、9,937 個標籤，分布在 993/1147 頁。【決定】維護者指示**先保留**（原標籤、原值完整保留，不丟資料）。日後再決定資料庫要怎麼存。三種樣貌見 README §7.7。
 5. **154 個明顯誤判的標籤** —— 單字或純數字（「如」「1」「火」「A」），其實是句子開頭或條目名後接說明。共 828 個值、98 頁受影響。**沒有資料遺失**，只是歸在 `fields_extra_multi`。待日後檢查時處理。
+6. **Markdown 資源書的呈現格式** —— `build/export_md.py` 已產出資源區 1019 頁的 Markdown（`build/md/`，不入版控）。欄位用 `**欄位**：值` 定義式、多值欄位用 `<ul><li>`、`fields_extra_multi` 歸在「**其他標籤**」區塊。等級層級為 `## X 級　label`、能力與變體為 `###`。**待維護者確認這個格式是否合意**，必要時調整 `render_*` 函式重跑即可。
 
 ---
 
@@ -371,9 +373,11 @@ schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030E)
 | `build/field_schema.json` | 欄位詞典（**必須進版控**，已加 .gitignore 例外） |
 | `build/extract_batch.py` | 分段批次執行器（`plan`/`run`/`merge`/`status`） |
 | `build/test_extract.py` | **回歸測試**（47 項；改完抽取器必跑） |
+| `build/export_md.py` | Markdown 資源書輸出器（`--section`/`--path`/`--out`） |
 | `build/extract-sample.json` | 抽取器小樣本輸出（產物，不入版控） |
 | `build/extract-parts/` | 分段結果與 manifest（產物，不入版控） |
 | `build/extract-all.json` | 全站合併結果（產物，不入版控） |
+| `build/md/` | Markdown 資源書（產物，不入版控；`export_md.py` 可重建） |
 | `Resource/_chm源檔/` | CHM 原始產物與佔位頁備份 |
 
 ---
@@ -382,8 +386,9 @@ schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030E)
 
 ### 第 1 優先：把抽取結果映射成資料庫 schema
 
-抽取器的資料品質問題已在 2026-10-22 修完（v3 三缺口 → README §7.6；v4 段落級重構 → README §7.7），
-全站 1146 頁已可抽出成 `build/extract-all.json`（不入版控，隨時可重建）。
+抽取器的資料品質問題已在 2026-10-22 修完（v3 三缺口 → README §7.6；v4 段落級重構 → README §7.7；名稱修正 → README §7.8），
+全站 1146 頁已可抽出成 `build/extract-all.json`（不入版控，隨時可重建），
+資源區另可輸出成可讀的 Markdown（`build/md/`，`build/export_md.py`）。
 **下一步不是修抽取器，而是定義資料庫 schema 給 App 用。**
 
 需要決定：
@@ -403,6 +408,12 @@ schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030E)
 - 其中 154 個是明顯誤判（單字/純數字，見 §3.3 第 5 點）
 
 ### 第 3 優先：價格預設值機制（見 §5.1）
+
+### 第 4 優先：規則區（64 頁）的抽取邏輯
+
+【決定】維護者於 2026-10-22 表示**先跳過**，只做資源區。規則頁是散文體，
+目前的抽取器會把整段話當成條目名（例如 `專長中未經描述的加值與減值均爲專長加值與專長減值。`），
+需要另一套「條文段落 → 章節條目」的邏輯才能處理。
 
 ---
 

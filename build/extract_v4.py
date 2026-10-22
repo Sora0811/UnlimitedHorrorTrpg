@@ -901,6 +901,40 @@ def build_from_paras(paras, name_hint):
     return entry
 
 
+def split_inline_name(t: str):
+    """「名稱：說明」型段落 → (名稱, 說明) 或 None。
+
+    原文常把條目名和說明寫在同一段：
+        「第九質點：Yesod。基礎」  → 名稱「第九質點」，說明「Yesod。基礎」
+        「無名劍法： DD+1000 ，…」  → 名稱「無名劍法」，說明含價格
+    判準：開頭的「X：」中 X 不是 schema 欄位、且 X 夠短像名稱。
+    """
+    info = any_label(t)
+    if not info:
+        return None
+    lab, vstart = info
+    if is_field_label(lab):
+        return None                      # 是正式欄位，維持原樣
+    if not looks_like_label(lab):
+        return None
+    rest = t[vstart:].strip()
+    if not rest:
+        return None
+    return lab.strip(), rest
+
+
+def is_prose(t: str) -> bool:
+    """這段是散文（句子）而不是名稱？
+
+    判準：含句讀 **且** 夠長。短句仍可能是名稱——
+        「第三質點，Binah。理解」（13 字）是名稱
+        「當你升級至 C 級時，你需要選擇一條道路，一旦選擇不可改變」（25 字）是散文
+    """
+    if not any(ch in t for ch in "，。；！？!?,、"):
+        return False
+    return len(t) > 16
+
+
 def analyze_page(path: Path):
     html = path.read_text(encoding="utf-8", errors="replace")
     text = plain(html)
@@ -914,21 +948,62 @@ def analyze_page(path: Path):
         joined = " ".join(seg)
         if len(joined) < 20:
             continue
-        # 名稱 = 段落序列裡第一個非欄位、非等級標題的段落
-        hint = ""
-        for t in seg:
-            if para_label(t) or level_heading(t) or is_tree_heading(t):
-                continue
-            if is_group_header(t):
-                continue
-            if len(t) <= NAME_MAX_LEN and t[0] not in "：:，,。、；;（「『\"'":
-                hint = t
-                break
-        if not hint:
-            hint = seg[0][:40]
-        page["entries"].append(build_from_paras(seg, hint))
+
+        hint, tail = pick_name(seg, rel)
+        entry = build_from_paras(seg, hint)
+        if tail:
+            entry.setdefault("notes", []).append(tail)
+        page["entries"].append(entry)
 
     return page
+
+
+def pick_name(seg, rel):
+    """從區塊段落挑出條目名。回傳 (名稱, 額外說明)。
+
+    規則（依實測）：
+      1. 第 0 段若短、無冒號 → 就是名稱（「無名劍法」「狂戰士」「第六質點，Tiphareth…」）
+      2. 第 0 段若是散文（整句）→ 往後找第一段短且無冒號的（「狂戰士」頁第 0 段是引導句）
+      3. 第 0 段是「名稱：說明」型 → 拆出名稱，說明轉為 notes
+      4. 都找不到 → 用頁面路徑尾段當名字
+    """
+    # 1) 第 0 段就是名稱
+    first = seg[0]
+    # 以冒號結尾的是群組標題（「杖身：」），不是條目名
+    is_group_like = first.rstrip("：:").strip() != first
+    if (len(first) <= NAME_MAX_LEN
+            and first[0] not in "：:，,。、；;（「『\"'"
+            and not any_label(first)
+            and not is_prose(first)
+            and not is_group_like):
+        return first, ""
+
+    # 3) 第 0 段是「名稱：說明」型
+    sp = split_inline_name(first)
+    if sp:
+        return sp[0], sp[1]
+
+    # 2) 第 0 段是散文 → 往後找真正的名稱
+    for t in seg[1:]:
+        if para_label(t) or level_heading(t) or is_tree_heading(t):
+            continue
+        if is_group_header(t):
+            continue
+        if len(t) > NAME_MAX_LEN or t[0] in "：:，,。、；;（「『\"'":
+            continue
+        if any_label(t):
+            continue                      # 是某個欄位，不是名稱
+        if is_prose(t):
+            continue                      # 也是散文，繼續找
+        return t, ""
+
+    # 4) 沒有像樣的名稱 → 退回用第 0 段（即使含句讀），
+    #    比用路徑尾段有意義（至少是原文開頭的標題）
+    if (first and len(first) <= NAME_MAX_LEN
+            and first.rstrip("：:").strip() == first
+            and not is_prose(first)):
+        return first, ""
+    return rel.rsplit("/", 1)[-1], ""
 
 
 def summarize(page):
